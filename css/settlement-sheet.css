@@ -1,0 +1,15 @@
+.settlement-sheet .image {
+  max-width: 100px;
+}
+
+.settlement-sheet .description, .settlement-sheet .description .editor {
+  min-height: 200px;
+}
+
+.settlement-sheet .header {
+  flex-grow: 0;
+}
+
+.settlement-sheet .sheet-tabs {
+  max-height: 15px;
+}

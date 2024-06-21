@@ -1,6 +1,6 @@
 /* global foundry */
 
-export class SettlementModel extends foundry.abstract.TypeDataModel {
+export class BuildingModel extends foundry.abstract.TypeDataModel {
   static defineSchema () {
     const fields = foundry.data.fields
     const schema = {}

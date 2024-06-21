@@ -1,11 +1,11 @@
-/* global game, foundry, ActorSheet, TextEditor */
+/* global game, foundry, ItemSheet, TextEditor */
 
 // Extend the base ActorSheet and put all our functionality here.
-export class SettlementActorSheet extends ActorSheet {
+export class BuildingItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions () {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ['settlement-sheet'],
+      classes: ['building-sheet'],
       template: 'modules/settlement-sheets/templates/settlement-sheet.hbs',
       width: 600,
       height: 650,
@@ -19,8 +19,8 @@ export class SettlementActorSheet extends ActorSheet {
 
   /** @override */
   get template () {
-    if (!game.user.isGM && this.actor.limited) return 'modules/settlement-sheets/templates/settlement-sheet-limited.hbs'
-    return 'modules/settlement-sheets/templates/settlement-sheet.hbs'
+    if (!game.user.isGM && this.item.limited) return 'modules/settlement-sheets/templates/building-sheet-limited.hbs'
+    return 'modules/settlement-sheets/templates/building-sheet.hbs'
   }
 
   /* -------------------------------------------- */
@@ -47,9 +47,5 @@ export class SettlementActorSheet extends ActorSheet {
   activateListeners (html) {
     // Activate listeners
     super.activateListeners(html)
-  }
-
-  _onOpenBuilding (event) {
-    event.preventDefault()
   }
 }

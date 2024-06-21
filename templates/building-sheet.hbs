@@ -1,0 +1,26 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  {{!-- Header --}}
+  <header class="header">
+    This is where the header fields for buildings go!
+    <hr>
+    <img class="image" src="{{item.img}}" data-edit="img" title="{{item.name}}" alt="Settlement Image" />
+    <h1 class="name">
+      <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'Name'}}" />
+    </h1>
+  </header>
+
+  {{!-- Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <div class="item" data-tab="overview">{{localize "settlement-sheets.Overview"}}</div>
+    <div class="item" data-tab="statistics">{{localize "settlement-sheets.Statistics"}}</div>
+  </nav>
+
+  {{!-- Body --}}
+  <section class="sheet-body">
+    {{!-- Group Members Tab --}}
+    {{> "modules/settlement-sheets/templates/parts/building/overview.hbs"}}
+
+    {{!-- Shared Features Tab --}}
+    {{> "modules/settlement-sheets/templates/parts/building/statistics.hbs"}}
+  </section>
+</form>

@@ -1,7 +1,12 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
   {{!-- Header --}}
-  <header class="settlement-header">
+  <header class="header">
     This is where the header fields go!
+    <hr>
+    <img class="image" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" alt="Settlement Image" />
+    <h1 class="name">
+      <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'Name'}}" />
+    </h1>
   </header>
 
   {{!-- Tab Navigation --}}

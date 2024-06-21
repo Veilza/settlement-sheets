@@ -1,0 +1,15 @@
+.building-sheet .image {
+  max-width: 100px;
+}
+
+.building-sheet .description, .building-sheet .description .editor {
+  min-height: 200px;
+}
+
+.building-sheet .header {
+  flex-grow: 0;
+}
+
+.building-sheet .sheet-tabs {
+  max-height: 15px;
+}
