@@ -1,0 +1,57 @@
+{
+	"id": "settlement-sheets",
+	"title": "Settlement Sheets",
+	"description": "A FoundryVTT module to help keep track of settlement statistics.",
+  "authors": [
+    {
+      "name": "Veilza",
+      "discord": "veilza",
+      "flags": {
+        "twitter": "https://twitter.com/VeilzaKinsemi",
+        "github": "https://github.com/Veilza",
+        "ko-fi": "https://ko-fi.com/VeilzaKinsemi"
+      }
+    }
+  ],
+	"version": "1.0.0",
+	"compatibility": {
+		"minimum": 12,
+		"verified": 12.327
+	},
+	"socket": "true",
+  "esmodules": [
+    "scripts/main.js"
+  ],
+  "styles": [
+    "css/settlement-sheet.css"
+  ],
+  "license": "./LICENSE",
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		}
+	],
+	"manifest": "https://github.com/veilza/settlement-sheets/releases/download/1.0.0/module.json",
+	"url": "https://github.com/veilza/settlement-sheets",
+	"download": "https://github.com/veilza/settlement-sheets/releases/download/1.0.0/settlement-sheets-1.0.0.zip",
+	"readme": "https://github.com/veilza/settlement-sheets/blob/main/readme.md",
+	"changelog": "https://github.com/veilza/settlement-sheets/releases/tag/1.0.0",
+  "documentTypes": {
+    "Actor": {
+      "settlement": {
+        "htmlFields": ["description"],
+        "filePathFields": {
+          "img": "IMAGE"
+        }
+      }
+    }
+  },
+  "flags": {
+    "hotReload": {
+      "extensions": ["css", "hbs", "json"],
+      "paths": ["css", "templates", "lang"]
+    }
+  }
+}

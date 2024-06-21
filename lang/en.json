@@ -1,0 +1,8 @@
+{
+  "TYPES.Actor.settlement-sheets.settlement": "Settlement",
+  "settlement-sheets": {
+    "SettlementSheets": "Settlement Sheets",
+    "Overview": "Overview",
+    "Statistics": "Statistics"
+  }
+}
