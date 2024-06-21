@@ -41,9 +41,11 @@
   "documentTypes": {
     "Actor": {
       "settlement": {
-        "htmlFields": ["description"],
+        "htmlFields": [
+          "description"
+        ],
         "filePathFields": {
-          "img": "IMAGE"
+          "img": ["IMAGE"]
         }
       }
     }
