@@ -8,7 +8,7 @@ export class BuildingItemSheet extends ItemSheet {
       classes: ['building-sheet'],
       template: 'modules/settlement-sheets/templates/settlement-sheet.hbs',
       width: 600,
-      height: 650,
+      height: 500,
       tabs: [{
         navSelector: '.sheet-tabs',
         contentSelector: '.sheet-body',
