@@ -1,7 +1,25 @@
 <div class="tab" data-group="primary" data-tab="overview">
-  This is where the overview would go... IF I HAD ONE.
-  <hr>
   <div class="description">
     {{editor actor.system.description target="system.description" button=true editable=editable}}
+  </div>
+  <div class="tracker">
+    <label>{{localize 'settlement-sheets.Morale'}}</label>
+    <input type="number" name="system.morale" value="{{actor.system.morale}}">
+  </div>
+  <div class="tracker">
+    <label>{{localize 'settlement-sheets.Income'}}</label>
+    <input type="number" name="system.income" value="{{actor.system.income}}">
+  </div>
+  <div class="tracker">
+    <label>{{localize 'settlement-sheets.Population'}}</label>
+    <input type="number" name="system.population" value="{{actor.system.population}}">
+  </div>
+  <div class="buildings-list">
+    <h3>{{localize 'settlement-sheets.MostPopulousBuildings'}}</h3>
+    <ul>
+      {{#each actor.buildings as |building|}}
+        <li>{{building.name}}</li>
+      {{/each}}
+    </ul>
   </div>
 </div>

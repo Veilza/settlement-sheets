@@ -43,14 +43,26 @@
     "Actor": {
       "settlement": {
         "htmlFields": [
-          "description"
+          "description",
+          "notes"
+        ],
+        "numberFields": [
+          "morale",
+          "income",
+          "population"
         ]
       }
     },
     "Item": {
       "building": {
         "htmlFields": [
-          "description"
+          "description",
+          "benefits"
+        ],
+        "numberFields": [
+          "cost",
+          "moraleImpact",
+          "incomeImpact"
         ]
       }
     }

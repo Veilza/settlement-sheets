@@ -3,6 +3,16 @@
   "settlement-sheets": {
     "SettlementSheets": "Settlement Sheets",
     "Overview": "Overview",
-    "Statistics": "Statistics"
+    "Statistics": "Statistics",
+    "Buildings": "Buildings",
+    "Notes": "Notes",
+    "DetailedStatistics": "Detailed Statistics",
+    "Cost": "Cost",
+    "MoraleImpact": "Morale Impact",
+    "IncomeImpact": "Income Impact",
+    "MostPopulousBuildings": "Most Populous Buildings",
+    "Income": "Income",
+    "Population": "Population",
+    "Morale": "Morale"
   }
 }

@@ -1,8 +1,6 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
   {{!-- Header --}}
   <header class="header">
-    This is where the header fields go!
-    <hr>
     <img class="image" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" alt="Settlement Image" />
     <h1 class="name">
       <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'Name'}}" />
@@ -14,6 +12,7 @@
     <div class="item" data-tab="overview">{{localize "settlement-sheets.Overview"}}</div>
     <div class="item" data-tab="statistics">{{localize "settlement-sheets.Statistics"}}</div>
     <div class="item" data-tab="buildings">{{localize "settlement-sheets.Buildings"}}</div>
+    <div class="item" data-tab="notes">{{localize "settlement-sheets.Notes"}}</div>
   </nav>
 
   {{!-- Body --}}
@@ -25,6 +24,9 @@
     {{> "modules/settlement-sheets/templates/parts/settlement/statistics.hbs"}}
 
     {{!-- Buildings Tab --}}
-    {{> "modules/settlement-sheets/templates/parts/settlement/statistics.hbs"}}
+    {{> "modules/settlement-sheets/templates/parts/settlement/buildings.hbs"}}
+
+    {{!-- Notes Tab --}}
+    {{> "modules/settlement-sheets/templates/parts/settlement/notes.hbs"}}
   </section>
 </form>

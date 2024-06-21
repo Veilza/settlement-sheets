@@ -11,7 +11,9 @@ export const preloadTemplates = async function () {
   const templatePaths = [
     // Settlement sheet
     'modules/settlement-sheets/templates/parts/settlement/overview.hbs',
+    'modules/settlement-sheets/templates/parts/settlement/buildings.hbs',
     'modules/settlement-sheets/templates/parts/settlement/statistics.hbs',
+    'modules/settlement-sheets/templates/parts/settlement/notes.hbs',
 
     // Building sheet
     'modules/settlement-sheets/templates/parts/building/overview.hbs',

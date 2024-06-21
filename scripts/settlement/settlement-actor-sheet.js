@@ -31,6 +31,16 @@ export class SettlementActorSheet extends ActorSheet {
     const context = await super.getData(options)
 
     // Manipulate any data in this context that we need to
+    context.buildings = [
+      {
+        name: 'Uuuu',
+        description: 'Test',
+        benefits: 'Yeah',
+        cost: 3,
+        moraleImpact: 13,
+        incomeImpact: 100
+      }
+    ]
 
     // The description field
     context.description = await TextEditor.enrichHTML(this.object.system.description, {

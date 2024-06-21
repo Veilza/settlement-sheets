@@ -1,9 +1,24 @@
 <div class="tab" data-group="primary" data-tab="buildings">
-  This is where the buildings go.
-  <hr>
-  {{#each actor.buildings}}
+  <h2>{{localize 'settlement-sheets.Buildings'}}</h2>
+  {{#each actor.buildings as |building|}}
     <div class="building">
-      
+      <h3>{{building.name}}</h3>
+      <div>{{building.description}}</div>
+      <div>{{building.benefits}}</div>
+      <div class="trackers">
+        <div class="tracker">
+          <label>{{localize 'settlement-sheets.Cost'}}</label>
+          <input type="number" name="building.cost" value="{{building.cost}}">
+        </div>
+        <div class="tracker">
+          <label>{{localize 'settlement-sheets.MoraleImpact'}}</label>
+          <input type="number" name="building.moraleImpact" value="{{building.moraleImpact}}">
+        </div>
+        <div class="tracker">
+          <label>{{localize 'settlement-sheets.IncomeImpact'}}</label>
+          <input type="number" name="building.incomeImpact" value="{{building.incomeImpact}}">
+        </div>
+      </div>
     </div>
   {{/each}}
 </div>

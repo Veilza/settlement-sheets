@@ -5,13 +5,48 @@ export class SettlementModel extends foundry.abstract.TypeDataModel {
     const fields = foundry.data.fields
     const schema = {}
 
-    // Define the schema fields here
+    // Overview Tab
     schema.description = new fields.HTMLField({
       initial: '',
       required: false,
       blank: true
     })
 
+    // Overview tab
+    schema.morale = new fields.NumberField({
+      nullable: false,
+      integer: true,
+      initial: 0,
+      label: 'settlement-sheets.Morale'
+    })
+
+    schema.income = new fields.NumberField({
+      nullable: false,
+      integer: true,
+      initial: 0,
+      label: 'settlement-sheets.Morale'
+    })
+
+    schema.population = new fields.NumberField({
+      nullable: false,
+      integer: true,
+      initial: 0,
+      label: 'settlement-sheets.Morale'
+    })
+
+    // Notes Tab
+    schema.notes = new fields.HTMLField({
+      initial: '',
+      required: false,
+      blank: true
+    })
+
     return schema
+  }
+
+  // Data prep
+  prepareDerivedData () {
+    // Set the morale
+    this.morale = 4 + 4 + 3 + 2
   }
 }
