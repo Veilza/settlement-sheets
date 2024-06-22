@@ -9,15 +9,15 @@
     </div>
     <div class="trackers">
       <div class="tracker">
-        <label class="title">{{localize 'settlement-sheets.Morale'}}</label>
+        <label class="title">{{moraleLabel}}</label>
         <label class="content">{{actor.system.morale}}</label>
       </div>
       <div class="tracker">
-        <label class="title">{{localize 'settlement-sheets.Income'}}</label>
-        <label class="content">{{actor.system.income}}</label>
+        <label class="title">{{incomeLabel}}</label>
+        <label class="content">{{appendCurrency actor.system.income}}</label>
       </div>
       <div class="tracker">
-        <label class="title">{{localize 'settlement-sheets.Population'}}</label>
+        <label class="title">{{populationLabel}}</label>
         <label class="content">{{actor.system.population}}</label>
       </div>
     </div>

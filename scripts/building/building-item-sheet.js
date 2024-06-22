@@ -31,6 +31,16 @@ export class BuildingItemSheet extends ItemSheet {
     const context = await super.getData(options)
 
     // Manipulate any data in this context that we need to
+    // Label data from settings
+    // Morale
+    const moraleLabel = game.settings.get('settlement-sheets', 'moraleLabel')
+    context.moraleLabel = moraleLabel || game.i18n.localize('settlement-sheets.Morale')
+    // Income
+    const incomeLabel = game.settings.get('settlement-sheets', 'incomeLabel')
+    context.incomeLabel = incomeLabel || game.i18n.localize('settlement-sheets.Income')
+    // Population
+    const populationLabel = game.settings.get('settlement-sheets', 'populationLabel')
+    context.populationLabel = populationLabel || game.i18n.localize('settlement-sheets.Population')
 
     // The description field
     context.description = await TextEditor.enrichHTML(this.object.system.description, {

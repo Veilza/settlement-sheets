@@ -3,6 +3,7 @@
 // Base Foundry scripts
 import { registerModuleSettings } from './settings.js'
 import { preloadTemplates } from './preload-templates.js'
+import { loadHelpers } from './helpers.js'
 // Settlement scripts
 import { SettlementModel } from './settlement/settlement-model.js'
 import { SettlementActorSheet } from './settlement/settlement-actor-sheet.js'
@@ -32,6 +33,9 @@ Hooks.once('init', () => {
 
   // Load the settings into the world
   registerModuleSettings()
+
+  // Input any helpers the module has
+  loadHelpers()
 
   // Preload any Handlebars partials we need
   preloadTemplates()
