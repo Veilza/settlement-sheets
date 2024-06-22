@@ -2,10 +2,13 @@
   "TYPES.Actor.settlement-sheets.settlement": "Settlement",
   "settlement-sheets": {
     "SettlementSheets": "Settlement Sheets",
+    "EditImage": "Edit Image",
     "Overview": "Overview",
     "Statistics": "Statistics",
     "Buildings": "Buildings",
     "Notes": "Notes",
+    "SettlementDescription": "Settlement Description",
+    "InfluentialPeople": "Influential People",
     "DetailedStatistics": "Detailed Statistics",
     "Cost": "Cost",
     "MoraleImpact": "Morale Impact",

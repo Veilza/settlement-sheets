@@ -12,6 +12,12 @@ export class SettlementModel extends foundry.abstract.TypeDataModel {
       blank: true
     })
 
+    schema.influentialPeople = new fields.HTMLField({
+      initial: '',
+      required: false,
+      blank: true
+    })
+
     // Overview tab
     schema.morale = new fields.NumberField({
       nullable: false,

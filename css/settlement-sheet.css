@@ -1,12 +1,47 @@
-.settlement-sheet .image {
-  max-width: 100px;
+.settlement-sheet .window-header {
+  background-color: rgba(200, 100, 0, .5);
+  background-blend-mode: multiply;
 }
 
-.settlement-sheet .description, .settlement-sheet .description .editor {
+.settlement-sheet .window-content {
+  padding-top: 0px;
+  background-color: rgba(200, 100, 0, .5);
+  background-blend-mode: multiply;
+}
+
+.settlement-sheet .window-content form {
+  background-color: #f0e9dd;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-blend-mode: multiply;
+}
+
+.settlement-sheet .image {
+  max-width: 100px;
+  cursor: pointer;
+}
+
+.settlement-sheet .description,
+.settlement-sheet .influentialPeople,
+.settlement-sheet .notes,
+.settlement-sheet .editor {
   min-height: 200px;
 }
 
 .settlement-sheet .header {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-grow: 0;
+}
+
+.settlement-sheet .field-title {
+  text-align: center;
+}
+
+.settlement-sheet .core-info {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -22,6 +57,10 @@
   display: flex;
   justify-content: space-around;
   margin-top: 10px;
+  max-height: 30px;
+  margin-left: -10px;
+  margin-right: -10px;
+  background: linear-gradient(0.0turn, #ffab67a4, #e66465a4, #ffab67a4);
 }
 
 .settlement-sheet .sheet-tabs .item {
@@ -41,16 +80,26 @@
   display: block;
 }
 
+.settlement-sheet .trackers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .settlement-sheet .tracker {
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
-.settlement-sheet .tracker label {
+.settlement-sheet .tracker .title {
   display: block;
+  font-weight: bold;
 }
 
-.settlement-sheet .tracker input {
+.settlement-sheet .tracker .content {
   width: 100%;
+  text-align: center;
 }
 
 .settlement-sheet .buildings-list ul {

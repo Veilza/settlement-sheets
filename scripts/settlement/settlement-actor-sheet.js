@@ -8,7 +8,7 @@ export class SettlementActorSheet extends ActorSheet {
       classes: ['settlement-sheet'],
       template: 'modules/settlement-sheets/templates/settlement-sheet.hbs',
       width: 600,
-      height: 650,
+      height: 750,
       tabs: [{
         navSelector: '.sheet-tabs',
         contentSelector: '.sheet-body',
