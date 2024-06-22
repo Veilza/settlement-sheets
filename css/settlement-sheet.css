@@ -1,16 +1,16 @@
 .settlement-sheet .window-header {
-  background-color: rgba(200, 100, 0, .5);
+  background-color: var(--base-color);
   background-blend-mode: multiply;
 }
 
 .settlement-sheet .window-content {
   padding-top: 0px;
-  background-color: rgba(200, 100, 0, .5);
+  background-color: var(--base-color);
   background-blend-mode: multiply;
 }
 
 .settlement-sheet .window-content form {
-  background-color: #f0e9dd;
+  background-color: var(--background-color);
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
@@ -23,10 +23,14 @@
 }
 
 .settlement-sheet .description,
-.settlement-sheet .influentialPeople,
+.settlement-sheet .influential-people,
 .settlement-sheet .notes,
 .settlement-sheet .editor {
   min-height: 200px;
+}
+
+.settlement-sheet .influential-people .tox.tox-tinymce {
+  height: 240px !important;
 }
 
 .settlement-sheet .header {
@@ -47,6 +51,10 @@
   gap: 20px;
 }
 
+.settlement-sheet .name {
+  flex-grow: 1;
+}
+
 .settlement-sheet .name input {
   font-size: 1.5em;
   width: 100%;
@@ -60,12 +68,18 @@
   max-height: 30px;
   margin-left: -10px;
   margin-right: -10px;
-  background: linear-gradient(0.0turn, #ffab67a4, #e66465a4, #ffab67a4);
+  background: linear-gradient(0.0turn, var(--base-gradient-1), var(--base-gradient-2), var(--base-gradient-1));
 }
 
 .settlement-sheet .sheet-tabs .item {
   cursor: pointer;
   padding: 10px;
+  color: var(--navbar-font-color);
+}
+
+.settlement-sheet .tabs > [data-tab].active {
+  text-shadow: 0 0 10px var(--link-highlight);
+  font-weight: bold;
 }
 
 .settlement-sheet .sheet-body {
@@ -130,4 +144,21 @@
 
 .settlement-sheet .notes {
   margin-top: 20px;
+}
+
+.settlement-sheet .editable .editor {
+  overflow: visible;
+}
+
+.settlement-sheet .editable .overview .editor .editor-edit,
+.settlement-sheet .editable .notes .editor .editor-edit {
+  display: block;
+}
+
+.settlement-sheet .editable .overview .editor .editor-edit {
+  top: -36px;
+}
+
+.settlement-sheet .editable .notes .editor .editor-edit {
+  top: -43px;
 }

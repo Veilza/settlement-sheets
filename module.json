@@ -23,8 +23,7 @@
     "scripts/main.js"
   ],
   "styles": [
-    "css/settlement-sheet.css",
-    "css/building-sheet.css"
+    "css/main.css"
   ],
   "license": "./LICENSE",
 	"languages": [
@@ -45,7 +44,8 @@
         "htmlFields": [
           "description",
           "influentialPeople",
-          "notes"
+          "notes.public",
+          "notes.private"
         ],
         "numberFields": [
           "morale",

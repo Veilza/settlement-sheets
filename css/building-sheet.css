@@ -1,16 +1,16 @@
 .building-sheet .window-header {
-  background-color: rgba(200, 100, 0, .5);
+  background-color: var(--base-color);
   background-blend-mode: multiply;
 }
 
 .building-sheet .window-content {
   padding-top: 0px;
-  background-color: rgba(200, 100, 0, .5);
+  background-color: var(--base-color);
   background-blend-mode: multiply;
 }
 
 .building-sheet .window-content form {
-  background-color: #f0e9dd;
+  background-color: var(--background-color);
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
@@ -47,6 +47,10 @@
   gap: 20px;
 }
 
+.building-sheet .name {
+  flex-grow: 1;
+}
+
 .building-sheet .name input {
   font-size: 1.5em;
   width: 100%;
@@ -60,12 +64,18 @@
   max-height: 30px;
   margin-left: -10px;
   margin-right: -10px;
-  background: linear-gradient(0.0turn, #ffab67a4, #e66465a4, #ffab67a4);
+  background: linear-gradient(0.0turn, var(--base-gradient-1), var(--base-gradient-2), var(--base-gradient-1));
 }
 
 .building-sheet .sheet-tabs .item {
   cursor: pointer;
   padding: 10px;
+  color: var(--navbar-font-color);
+}
+
+.building-sheet .tabs > [data-tab].active {
+  text-shadow: 0 0 10px var(--link-highlight);
+  font-weight: bold;
 }
 
 .building-sheet .sheet-body {
@@ -105,4 +115,8 @@
 
 .building-sheet .tracker .content input {
   max-width: 100px;
+}
+
+.building-sheet .tox.tox-tinymce {
+  height: 240px !important;
 }

@@ -49,6 +49,20 @@ export class SettlementActorSheet extends ActorSheet {
       relativeTo: this.object
     })
 
+    // Private and Public notes
+    context.notes = {
+      public: await TextEditor.enrichHTML(this.object.system.note.public, {
+        async: true,
+        secrets: this.object.isOwner,
+        relativeTo: this.object
+      }),
+      private: await TextEditor.enrichHTML(this.object.system.note.private, {
+        async: true,
+        secrets: this.object.isOwner,
+        relativeTo: this.object
+      })
+    }
+
     // Return the context once we're done with our changes
     return context
   }

@@ -1,6 +1,11 @@
-<div class="tab" data-group="primary" data-tab="notes">
-  <h2>{{localize 'settlement-sheets.Notes'}}</h2>
+<div class="tab notes" data-group="primary" data-tab="notes">
+  <h2>{{localize 'settlement-sheets.PublicNotes'}}</h2>
   <div class="notes">
-    {{editor actor.system.notes target="system.notes" button=true editable=editable}}
+    {{editor actor.system.note.public target="system.note.public" button=true editable=editable}}
+  </div>
+
+  <h2>{{localize 'settlement-sheets.PrivateNotes'}}</h2>
+  <div class="notes">
+    {{editor actor.system.note.private target="system.note.private" button=true editable=editable}}
   </div>
 </div>
