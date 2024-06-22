@@ -30,14 +30,14 @@ export class SettlementModel extends foundry.abstract.TypeDataModel {
       nullable: false,
       integer: true,
       initial: 0,
-      label: 'settlement-sheets.Morale'
+      label: 'settlement-sheets.Income'
     })
 
     schema.population = new fields.NumberField({
       nullable: false,
       integer: true,
       initial: 0,
-      label: 'settlement-sheets.Morale'
+      label: 'settlement-sheets.Population'
     })
 
     // Notes Tab

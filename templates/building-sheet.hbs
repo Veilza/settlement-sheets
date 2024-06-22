@@ -1,12 +1,12 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
   {{!-- Header --}}
   <header class="header">
-    This is where the header fields for buildings go!
-    <hr>
-    <img class="image" src="{{item.img}}" data-edit="img" title="{{item.name}}" alt="Settlement Image" />
-    <h1 class="name">
-      <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'Name'}}" />
-    </h1>
+    <div class="core-info">
+      <img class="image" src="{{item.img}}" data-edit="img" title="{{item.name}}" alt="Settlement Image" />
+      <h1 class="name">
+        <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'Name'}}" />
+      </h1>
+    </div>
   </header>
 
   {{!-- Tab Navigation --}}

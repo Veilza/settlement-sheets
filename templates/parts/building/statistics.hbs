@@ -1,3 +1,23 @@
 <div class="tab" data-group="primary" data-tab="statistics">
-  Idk man, 4d10 gold.
+  <div class="trackers">
+    <div class="tracker">
+      <label class="title">{{localize 'settlement-sheets.Cost'}}</label>
+      <label class="content"><input type="number" name="system.cost" value="{{item.system.cost}}"/></label>
+    </div>
+
+    <div class="tracker">
+      <label class="title">{{localize 'settlement-sheets.MoraleImpact'}}</label>
+      <label class="content"><input type="number" name="system.moraleImpact" value="{{item.system.moraleImpact}}"/></label>
+    </div>
+
+    <div class="tracker">
+      <label class="title">{{localize 'settlement-sheets.PopulationImpact'}}</label>
+      <label class="content"><input type="number" name="system.populationImpact" value="{{item.system.populationImpact}}"/></label>
+    </div>
+
+    <div class="tracker">
+      <label class="title">{{localize 'settlement-sheets.IncomeImpact'}}</label>
+      <label class="content"><input type="number" name="system.incomeImpact" value="{{item.system.incomeImpact}}"/></label>
+    </div>
+  </div>
 </div>

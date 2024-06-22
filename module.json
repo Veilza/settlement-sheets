@@ -63,7 +63,8 @@
         "numberFields": [
           "cost",
           "moraleImpact",
-          "incomeImpact"
+          "incomeImpact",
+          "populationImpact"
         ]
       }
     }

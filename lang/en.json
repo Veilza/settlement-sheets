@@ -1,5 +1,6 @@
 {
   "TYPES.Actor.settlement-sheets.settlement": "Settlement",
+  "TYPES.Item.settlement-sheets.building": "Building",
   "settlement-sheets": {
     "SettlementSheets": "Settlement Sheets",
     "EditImage": "Edit Image",
@@ -11,6 +12,7 @@
     "InfluentialPeople": "Influential People",
     "DetailedStatistics": "Detailed Statistics",
     "Cost": "Cost",
+    "PopulationImpact": "Population Impact",
     "MoraleImpact": "Morale Impact",
     "IncomeImpact": "Income Impact",
     "MostPopulousBuildings": "Most Populous Buildings",

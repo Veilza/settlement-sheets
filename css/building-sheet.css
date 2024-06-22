@@ -1,15 +1,108 @@
-.building-sheet .image {
-  max-width: 100px;
+.building-sheet .window-header {
+  background-color: rgba(200, 100, 0, .5);
+  background-blend-mode: multiply;
 }
 
-.building-sheet .description, .building-sheet .description .editor {
+.building-sheet .window-content {
+  padding-top: 0px;
+  background-color: rgba(200, 100, 0, .5);
+  background-blend-mode: multiply;
+}
+
+.building-sheet .window-content form {
+  background-color: #f0e9dd;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-blend-mode: multiply;
+}
+
+.building-sheet .image {
+  max-width: 100px;
+  cursor: pointer;
+}
+
+.building-sheet .description,
+.building-sheet .influentialPeople,
+.building-sheet .notes,
+.building-sheet .editor {
   min-height: 200px;
 }
 
 .building-sheet .header {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   flex-grow: 0;
 }
 
+.building-sheet .field-title {
+  text-align: center;
+}
+
+.building-sheet .core-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.building-sheet .name input {
+  font-size: 1.5em;
+  width: 100%;
+  height: 50px;
+}
+
 .building-sheet .sheet-tabs {
-  max-height: 15px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  max-height: 30px;
+  margin-left: -10px;
+  margin-right: -10px;
+  background: linear-gradient(0.0turn, #ffab67a4, #e66465a4, #ffab67a4);
+}
+
+.building-sheet .sheet-tabs .item {
+  cursor: pointer;
+  padding: 10px;
+}
+
+.building-sheet .sheet-body {
+  margin-top: 20px;
+}
+
+.building-sheet .tab {
+  display: none;
+}
+
+.building-sheet .tab.active {
+  display: block;
+}
+
+.building-sheet .trackers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.building-sheet .tracker {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.building-sheet .tracker .title {
+  display: block;
+  font-weight: bold;
+  text-align: center;
+}
+
+.building-sheet .tracker .content {
+  width: 100%;
+  text-align: center;
+}
+
+.building-sheet .tracker .content input {
+  max-width: 100px;
 }
