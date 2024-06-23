@@ -1,3 +1,4 @@
+/* General sheet styling */
 .building-sheet .window-header {
   background-color: var(--settlement-sheet-base-color);
   background-blend-mode: multiply;
@@ -17,24 +18,22 @@
   background-blend-mode: multiply;
 }
 
-.building-sheet .image {
-  max-width: 100px;
-  cursor: pointer;
+.building-sheet .sheet-body {
+  margin-top: 20px;
 }
 
-.building-sheet .description,
-.building-sheet .influentialPeople,
-.building-sheet .note,
-.building-sheet .editor {
-  min-height: 200px;
-}
-
+/* Header */
 .building-sheet .header {
   display: inline-flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
   flex-grow: 0;
+}
+
+.building-sheet .header .image {
+  max-width: 100px;
+  cursor: pointer;
 }
 
 .building-sheet .field-title {
@@ -57,6 +56,7 @@
   height: 50px;
 }
 
+/* Navbar */
 .building-sheet .sheet-tabs {
   display: flex;
   justify-content: space-around;
@@ -78,10 +78,6 @@
   font-weight: bold;
 }
 
-.building-sheet .sheet-body {
-  margin-top: 20px;
-}
-
 .building-sheet .tab {
   display: none;
 }
@@ -90,6 +86,16 @@
   display: block;
 }
 
+/* TextEditor Styling and adjustments */
+.building-sheet .editor {
+  min-height: 200px;
+}
+
+.building-sheet .tox.tox-tinymce {
+  height: 240px !important;
+}
+
+/* Trackers */
 .building-sheet .tracker {
   margin-top: 10px;
   display: flex;
@@ -111,8 +117,4 @@
 
 .building-sheet .tracker .content input {
   max-width: 100px;
-}
-
-.building-sheet .tox.tox-tinymce {
-  height: 240px !important;
 }

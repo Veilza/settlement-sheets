@@ -12,6 +12,7 @@
   --settlement-sheet-navbar-gradient-2: #1f1f1fa4;
 }
 
+/* Some universal, useful stylings for grouping */
 .grid,
 .grid-2col {
     display: grid;

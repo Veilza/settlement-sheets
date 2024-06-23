@@ -1,3 +1,5 @@
+/* Adjustments to the Settlement/Building Sheet because 
+CofD by default changes the text colour of sheets to white. */
 .system-mta .settlement-sheet .window-content,
 .system-mta .settlement-sheet select,
 .system-mta .settlement-sheet select option,
