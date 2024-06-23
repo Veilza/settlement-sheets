@@ -61,6 +61,13 @@ export class SettlementActorSheet extends ActorSheet {
       relativeTo: this.object
     })
 
+    // Influential people
+    context.influentialPeople = await TextEditor.enrichHTML(this.object.system.influentialPeople, {
+      async: true,
+      secrets: this.object.isOwner,
+      relativeTo: this.object
+    })
+
     // Private and Public notes
     context.note = {
       public: await TextEditor.enrichHTML(this.object.system.note.public, {
