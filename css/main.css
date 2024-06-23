@@ -11,16 +11,6 @@
   --settlement-sheet-navbar-gradient-2: #1f1f1fa4;
 }
 
-/* Test Colours
-:root {
-  --settlement-sheet-base-font: #f0f0e0;
-  --settlement-sheet-base-color: rgba(200, 100, 0, .5);
-  --settlement-sheet-background-color: #f0e9dd;
-  --settlement-sheet-navbar-gradient-1: #ffab67a4;
-  --settlement-sheet-navbar-gradient-2: #e66465a4;
-}
-*/
-
 .grid,
 .grid-2col {
     display: grid;
