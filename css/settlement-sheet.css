@@ -120,6 +120,12 @@
   min-height: 200px;
 }
 
+.settlement-sheet .description .tox.tox-tinymce,
+.settlement-sheet .influential-people .tox.tox-tinymce,
+.settlement-sheet .editor .tox.tox-tinymce {
+  height: 200px !important;
+}
+
 .settlement-sheet .influential-people .tox.tox-tinymce {
   height: 240px !important;
 }
