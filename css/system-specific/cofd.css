@@ -1,0 +1,12 @@
+.system-mta .settlement-sheet .window-content,
+.system-mta .settlement-sheet select,
+.system-mta .settlement-sheet select option,
+.system-mta .settlement-sheet label,
+.system-mta .settlement-sheet input,
+.system-mta .building-sheet .window-content,
+.system-mta .building-sheet select,
+.system-mta .building-sheet select option,
+.system-mta .building-sheet label,
+.system-mta .building-sheet input {
+  color: #000 !important;
+}
