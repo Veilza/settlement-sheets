@@ -3,21 +3,21 @@
 
 /* Base Foundry Colours */
 :root {
-  --navbar-font-color: #f0f0e0;
-  --link-highlight: #fc2020;
-  --base-color: rgba(116, 116, 116, 0.5);
-  --background-color: #f0e9dd;
-  --base-gradient-1: #272727a4;
-  --base-gradient-2: #1f1f1fa4;
+  --settlement-sheet-base-color: #74747480;
+  --settlement-sheet-background-color: #f0e9dd;
+  --settlement-sheet-navbar-text-color: #f0f0e0;
+  --settlement-sheet-navbar-link-highlight: #fc2020;
+  --settlement-sheet-navbar-gradient-1: #272727a4;
+  --settlement-sheet-navbar-gradient-2: #1f1f1fa4;
 }
 
 /* Test Colours
 :root {
-  --base-font: #f0f0e0;
-  --base-color: rgba(200, 100, 0, .5);
-  --background-color: #f0e9dd;
-  --base-gradient-1: #ffab67a4;
-  --base-gradient-2: #e66465a4;
+  --settlement-sheet-base-font: #f0f0e0;
+  --settlement-sheet-base-color: rgba(200, 100, 0, .5);
+  --settlement-sheet-background-color: #f0e9dd;
+  --settlement-sheet-navbar-gradient-1: #ffab67a4;
+  --settlement-sheet-navbar-gradient-2: #e66465a4;
 }
 */
 

@@ -1,16 +1,16 @@
 .building-sheet .window-header {
-  background-color: var(--base-color);
+  background-color: var(--settlement-sheet-base-color);
   background-blend-mode: multiply;
 }
 
 .building-sheet .window-content {
   padding-top: 0px;
-  background-color: var(--base-color);
+  background-color: var(--settlement-sheet-base-color);
   background-blend-mode: multiply;
 }
 
 .building-sheet .window-content form {
-  background-color: var(--background-color);
+  background-color: var(--settlement-sheet-background-color);
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
@@ -64,17 +64,17 @@
   max-height: 30px;
   margin-left: -10px;
   margin-right: -10px;
-  background: linear-gradient(0.0turn, var(--base-gradient-1), var(--base-gradient-2), var(--base-gradient-1));
+  background: linear-gradient(0.0turn, var(--settlement-sheet-navbar-gradient-1), var(--settlement-sheet-navbar-gradient-2), var(--settlement-sheet-navbar-gradient-1));
 }
 
 .building-sheet .sheet-tabs .item {
   cursor: pointer;
   padding: 10px;
-  color: var(--navbar-font-color);
+  color: var(--settlement-sheet-navbar-text-color);
 }
 
 .building-sheet .tabs > [data-tab].active {
-  text-shadow: 0 0 10px var(--link-highlight);
+  text-shadow: 0 0 10px var(--settlement-sheet-navbar-link-highlight);
   font-weight: bold;
 }
 

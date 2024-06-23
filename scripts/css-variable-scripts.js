@@ -3,18 +3,46 @@
 // All CSS settings in a neat little list
 const cssSettingsList = [
   {
-    settingId: 'navbarColor',
-    label: 'Navbar Color',
-    hint: 'Sets a custom color for the navbar font.',
-    variable: '--navbar-font-color',
+    settingId: 'baseColor',
+    label: 'Base Color',
+    hint: 'Sets the base color for the sheet.',
+    variable: '--settlement-sheet-base-color',
+    default: '#74747480'
+  },
+  {
+    settingId: 'backgroundColor',
+    label: 'Background Color',
+    hint: 'Sets the background color for the sheet.',
+    variable: '--settlement-sheet-background-color',
+    default: '#f0e9dd'
+  },
+  {
+    settingId: 'navbarTextColor',
+    label: 'Navbar Text Color',
+    hint: 'Sets a custom color for the navbar text.',
+    variable: '--settlement-sheet-navbar-text-color',
     default: '#f0f0e0'
   },
   {
-    settingId: 'linkHighlight',
-    label: 'Link Highlight Color',
+    settingId: 'navbarLinkHighlight',
+    label: 'Navbar Link Highlight Color',
     hint: 'Sets the highlight color for the navbar links.',
-    variable: '--link-highlight',
+    variable: '--settlement-sheet-navbar-link-highlight',
     default: '#fc2020'
+  },
+  {
+    settingId: 'navbarGradient1',
+    label: 'Navbar Gradient 1',
+    hint: 'Sets the first color of the navbar gradient.',
+    variable: '--settlement-sheet-navbar-gradient-1',
+    default: '#272727a4'
+  },
+  {
+    settingId: 'navbarGradient2',
+    label: 'Navbar Gradient 2',
+    hint: 'Sets the second color of the navbar gradient.',
+    variable: '--settlement-sheet-navbar-gradient-2',
+    default: '#1f1f1fa4'
   }
 ]
 
@@ -32,6 +60,7 @@ export const registerCssSettings = async () => {
       default: setting.default,
       type: String,
       onChange: (newColor) => {
+        // If the new color isn't an empty string, send to the updateCSSVariable function
         if (newColor !== '') {
           updateCSSVariable(setting.settingId, setting.variable, newColor)
         } else {
@@ -57,7 +86,9 @@ export const initCssSettings = async () => {
   })
 }
 
-// Function to update the CSS variable
+/**
+ * Function to update the CSS variable
+ */
 function updateCSSVariable (settingName, variableName, newColor) {
   let validColor = true
   // If no value is being provided for variableName or settingName, we do nothing
@@ -84,5 +115,5 @@ function updateCSSVariable (settingName, variableName, newColor) {
 
 // Quick way to validate a hexcode
 function validateHexcode (hexcode) {
-  return /^#?([0-9A-F]{3}){1,2}$/i.test(hexcode)
+  return /^#?([0-9A-F]{3}|[0-9A-F]{4}|[0-9A-F]{6}|[0-9A-F]{8})$/i.test(hexcode)
 }
