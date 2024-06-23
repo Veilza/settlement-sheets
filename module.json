@@ -20,7 +20,7 @@
 	},
 	"socket": "true",
   "esmodules": [
-    "scripts/main.js"
+    "system/main.js"
   ],
   "styles": [
     "css/main.css"
