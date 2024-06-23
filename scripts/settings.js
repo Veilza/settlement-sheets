@@ -1,6 +1,7 @@
 /* global game */
 
 import { resetActors } from './reset-actors.js'
+import { registerCssSettings } from './css-variable-scripts.js'
 
 // Define all module settings
 export const registerModuleSettings = async function () {
@@ -59,4 +60,7 @@ export const registerModuleSettings = async function () {
       resetActors()
     }
   })
+
+  // Register all CSS settings
+  registerCssSettings()
 }

@@ -62,7 +62,7 @@ export class SettlementActorSheet extends ActorSheet {
     })
 
     // Private and Public notes
-    context.notes = {
+    context.note = {
       public: await TextEditor.enrichHTML(this.object.system.note.public, {
         async: true,
         secrets: this.object.isOwner,

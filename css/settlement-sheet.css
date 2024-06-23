@@ -24,13 +24,16 @@
 
 .settlement-sheet .description,
 .settlement-sheet .influential-people,
-.settlement-sheet .notes,
 .settlement-sheet .editor {
   min-height: 200px;
 }
 
 .settlement-sheet .influential-people .tox.tox-tinymce {
   height: 240px !important;
+}
+
+.settlement-sheet .note .tox.tox-tinymce {
+  height: 250px !important;
 }
 
 .settlement-sheet .header {
@@ -144,16 +147,12 @@
   flex: 1;
 }
 
-.settlement-sheet .notes {
-  margin-top: 20px;
-}
-
 .settlement-sheet .editable .editor {
   overflow: visible;
 }
 
 .settlement-sheet .editable .overview .editor .editor-edit,
-.settlement-sheet .editable .notes .editor .editor-edit {
+.settlement-sheet .editable .note .editor .editor-edit {
   display: block;
 }
 
@@ -161,6 +160,6 @@
   top: -36px;
 }
 
-.settlement-sheet .editable .notes .editor .editor-edit {
+.settlement-sheet .editable .note .editor .editor-edit {
   top: -43px;
 }

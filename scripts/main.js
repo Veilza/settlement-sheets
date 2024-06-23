@@ -10,6 +10,8 @@ import { SettlementActorSheet } from './settlement/settlement-actor-sheet.js'
 // Building scripts
 import { BuildingItemSheet } from './building/building-item-sheet.js'
 import { BuildingModel } from './building/building-model.js'
+// Other helpful scripts
+import { initCssSettings } from './css-variable-scripts.js'
 
 // Anything that needs to be ran alongside the initialisation of the world
 Hooks.once('init', () => {
@@ -39,4 +41,8 @@ Hooks.once('init', () => {
 
   // Preload any Handlebars partials we need
   preloadTemplates()
+})
+
+Hooks.once('ready', () => {
+  initCssSettings()
 })
