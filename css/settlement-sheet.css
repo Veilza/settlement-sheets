@@ -180,3 +180,23 @@
 .settlement-sheet .tracker .content input {
   max-width: 100px;
 }
+
+.settlement-sheet .building-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.settlement-sheet .open-building {
+  cursor: pointer;
+}
+
+.settlement-sheet .add-building {
+  text-align: center;
+  cursor: pointer;
+  max-width: 250px;
+  margin: auto;
+}
+
+.settlement-sheet .remove-building {
+  cursor: pointer;
+}

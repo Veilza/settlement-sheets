@@ -20,7 +20,7 @@
 	},
 	"socket": "true",
   "esmodules": [
-    "system/main.js"
+    "module/main.js"
   ],
   "styles": [
     "css/main.css"
@@ -44,8 +44,8 @@
         "htmlFields": [
           "description",
           "influentialPeople",
-          "notes.public",
-          "notes.private"
+          "note.public",
+          "note.private"
         ],
         "numberFields": [
           "morale",

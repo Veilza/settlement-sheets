@@ -5,7 +5,7 @@
  * @return {Promise}
  */
 export const preloadTemplates = async function () {
-  console.log('Preloading Settlement Sheet partials.')
+  console.log('Preloading partials for the Settlement Sheets module.')
 
   // Define template paths to load
   const templatePaths = [
@@ -17,7 +17,10 @@ export const preloadTemplates = async function () {
 
     // Building sheet
     'modules/settlement-sheets/templates/parts/building/overview.hbs',
-    'modules/settlement-sheets/templates/parts/building/statistics.hbs'
+    'modules/settlement-sheets/templates/parts/building/statistics.hbs',
+
+    // Dialog templates
+    'modules/settlement-sheets/templates/remove-building-dialog.hbs'
   ]
 
   /* Load the template parts

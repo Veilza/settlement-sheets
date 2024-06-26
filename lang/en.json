@@ -20,6 +20,14 @@
     "MostPopulousBuildings": "Most Populous Buildings",
     "Income": "Income",
     "Population": "Population",
-    "Morale": "Morale"
+    "Morale": "Morale",
+    "EditBuilding": "Edit Building",
+    "NewBuilding": "New Building",
+    "AddNewBuilding": "Add New Building",
+    "AddNewBuildingHint": "Click to add a new building to this settlement!",
+    "RemoveBuilding": "Remove Building",
+    "RemoveBuildingHint": "Are you sure you want to remove this building?\nAll data in this building will be deleted and cannot be recovered.",
+    "Cancel": "Cancel",
+    "ToggleVisible": "Toggle Visible to Players"
   }
 }

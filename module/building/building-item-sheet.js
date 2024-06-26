@@ -49,6 +49,13 @@ export class BuildingItemSheet extends ItemSheet {
       relativeTo: this.object
     })
 
+    // The benefits field
+    context.benefits = await TextEditor.enrichHTML(this.object.system.benefits, {
+      async: true,
+      secrets: this.object.isOwner,
+      relativeTo: this.object
+    })
+
     // Return the context once we're done with our changes
     return context
   }

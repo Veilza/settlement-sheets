@@ -15,7 +15,7 @@ import { initCssSettings } from './scripts/css-variable-scripts.js'
 
 // Anything that needs to be ran alongside the initialisation of the world
 Hooks.once('init', () => {
-  // Register the brand new settlement actor type
+  // Register the settlement actor type
   Object.assign(CONFIG.Actor.dataModels, {
     'settlement-sheets.settlement': SettlementModel
   })
@@ -24,7 +24,7 @@ Hooks.once('init', () => {
     makeDefault: true
   })
 
-  // Register the brand new building item type
+  // Register the building item type
   Object.assign(CONFIG.Item.dataModels, {
     'settlement-sheets.building': BuildingModel
   })

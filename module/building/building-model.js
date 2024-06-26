@@ -12,6 +12,12 @@ export class BuildingModel extends foundry.abstract.TypeDataModel {
       blank: true
     })
 
+    schema.benefits = new fields.HTMLField({
+      initial: '',
+      required: false,
+      blank: true
+    })
+
     // Statistics tab
     schema.cost = new fields.NumberField({
       nullable: false,
