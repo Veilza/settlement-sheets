@@ -78,9 +78,45 @@ export class StatisticsMenu extends FormApplication {
           showOnSettlement: html.getElementById(`${id}-showOnSettlement`).checked
         }
       })
+    })
 
-      // Update settings
-      console.log(statistics)
+    // Listeners will go here
+
+    // Add a new statistic to the list
+    html.find('.add-new-statistic').on('click', async function (event) {
+      event.preventDefault()
+      // Get the list of statistics
+      const statistics = game.settings.get('settlement-sheets', 'sheetStatistics')
+
+      // Add the new statistic to the list with some basic data
+      statistics[foundry.utils.randomID(8)] = {
+        label: game.i18n.localize('settlement-sheets.STATS.NewStatistic'),
+        type: 'number',
+        prepend: '',
+        append: '',
+        showToPlayers: false,
+        showInHeader: false,
+        showOnSettlement: true
+      }
+
+      // Set the updated list of statistics
+      game.settings.set('settlement-sheets', 'sheetStatistics', statistics)
+    })
+
+    // Remove a statistic from the list
+    html.find('.remove-statistic').on('click', async function (event) {
+      event.preventDefault()
+
+      const id = event.currentTarget.dataset.id
+
+      // Get the list of statistics
+      const statistics = game.settings.get('settlement-sheets', 'sheetStatistics')
+
+      // Delete the targeted statistic from the list
+      delete statistics[id]
+
+      // Set the updated list of statistics
+      game.settings.set('settlement-sheets', 'sheetStatistics', statistics)
     })
 
     // Reset statistics to their default values

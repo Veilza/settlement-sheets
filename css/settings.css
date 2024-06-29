@@ -7,6 +7,10 @@
   border-radius: 5px;
 }
 
+.settlement-sheets-settings-menu .stat-name {
+  flex-basis: auto;
+}
+
 .settlement-sheets-settings-menu .stat-section h2 {
   margin-top: 0;
 }
@@ -36,5 +40,9 @@ input[type="number"] {
 
 .settlement-sheets-settings-menu button {
   border: none;
+  cursor: pointer;
+}
+
+.settlement-sheets-settings-menu .remove-statistic {
   cursor: pointer;
 }

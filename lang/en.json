@@ -60,7 +60,9 @@
       "EditStatistics": "Edit Statistics",
       "EditStatisticsHint": "Edit the statistics as they appear on settlement and building sheets.",
       "ResetStatistics": "Reset Statistics",
-      "ResetStatisticsHint": "Are you sure you want to reset all statistics data?\nThis will delete any custom statistics and modifications you've made, including any custom data on settlement and building sheets."
+      "ResetStatisticsHint": "Are you sure you want to reset all statistics data?\nThis will delete any custom statistics and modifications you've made, including any custom data on settlement and building sheets.",
+      "NewStatistic": "New Statistic",
+      "AddNewStatistic": "Add New Statistic"
     }
   }
 }

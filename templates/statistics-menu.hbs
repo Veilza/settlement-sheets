@@ -1,7 +1,12 @@
 <form autocomplete="off" class="settlement-sheets-settings-menu">
   {{#each statistics as |stat id|}}
     <div class="stat-section" id="{{id}}">
-        <h2><input type="text" name="{{id}}.label" value="{{localize stat.label}}"></h2>
+        <h2 class="flexrow">
+          <input class="stat-name" type="text" name="{{id}}.label" value="{{localize stat.label}}">
+          <span class="remove-statistic" data-id="{{id}}">
+            <i class="fas fa-trash"></i>
+          </span>
+        </h2>
         <div class="grid grid-3col">
           <div>
             <label for="{{id}}.type">{{localize 'Type'}}</label>
@@ -36,9 +41,12 @@
     <hr/>
   {{/each}}
   <div id="statisticsContainer"></div>
-  <div class="button-section grid grid-2col">
+  <div class="button-section grid grid-3col">
     <button type="button" class="reset-statistics">
       <i class="fas fa-redo"></i> {{localize 'settlement-sheets.STATS.ResetStatistics'}}
+    </button>
+    <button type="button" class="add-new-statistic">
+      <i class="fas fa-plus"></i> {{localize 'settlement-sheets.STATS.AddNewStatistic'}}
     </button>
     <button type="submit" class="save-statistics">
       <i class="fas fa-save"></i> {{localize 'Save'}}
