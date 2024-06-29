@@ -47,10 +47,8 @@
           "note.public",
           "note.private"
         ],
-        "numberFields": [
-          "morale",
-          "income",
-          "population"
+        "objectFields": [
+          "trackers"
         ]
       }
     },
@@ -60,11 +58,8 @@
           "description",
           "benefits"
         ],
-        "numberFields": [
-          "cost",
-          "moraleImpact",
-          "incomeImpact",
-          "populationImpact"
+        "objectFields": [
+          "trackers"
         ]
       }
     }

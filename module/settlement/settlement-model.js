@@ -18,26 +18,10 @@ export class SettlementModel extends foundry.abstract.TypeDataModel {
       blank: true
     })
 
-    // Overview tab
-    schema.morale = new fields.NumberField({
-      nullable: false,
-      integer: true,
-      initial: 0,
-      label: 'settlement-sheets.Morale'
-    })
-
-    schema.income = new fields.NumberField({
-      nullable: false,
-      integer: true,
-      initial: 0,
-      label: 'settlement-sheets.Income'
-    })
-
-    schema.population = new fields.NumberField({
-      nullable: false,
-      integer: true,
-      initial: 0,
-      label: 'settlement-sheets.Population'
+    // Sheet trackers
+    schema.trackers = new fields.ObjectField({
+      initial: {},
+      required: false
     })
 
     // Notes Tab
@@ -59,11 +43,5 @@ export class SettlementModel extends foundry.abstract.TypeDataModel {
     })
 
     return schema
-  }
-
-  // Data prep
-  prepareDerivedData () {
-    // Set the morale
-    this.morale = 4 + 4 + 3 + 2
   }
 }

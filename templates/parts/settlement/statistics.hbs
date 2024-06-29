@@ -1,3 +1,11 @@
 <div class="tab statistics" data-group="primary" data-tab="statistics">
   <!-- Add detailed statistics fields here -->
+  <div class="grid grid-3col">
+    {{#each page_trackers as |tracker|}}
+      <div class="tracker">
+        <label class="title">{{tracker.label}}</label>
+        <label class="content">{{tracker.prepend}}{{tracker.value}}{{tracker.append}}</label>
+      </div>
+    {{/each}}
+  </div>
 </div>

@@ -1,17 +1,15 @@
 /* global Hooks, CONFIG, DocumentSheetConfig, Actor, Item */
 
 // Base Foundry scripts
-import { registerModuleSettings } from './scripts/settings.js'
-import { preloadTemplates } from './scripts/preload-templates.js'
-import { loadHelpers } from './scripts/helpers.js'
+import { _registerModuleSettings } from './scripts/settings.js'
+import { _preloadTemplates } from './scripts/preload-templates.js'
+import { _loadHelpers } from './scripts/helpers.js'
 // Settlement scripts
 import { SettlementModel } from './settlement/settlement-model.js'
 import { SettlementActorSheet } from './settlement/settlement-actor-sheet.js'
 // Building scripts
 import { BuildingItemSheet } from './building/building-item-sheet.js'
 import { BuildingModel } from './building/building-model.js'
-// Other helpful scripts
-import { initCssSettings } from './scripts/css-variable-scripts.js'
 
 // Anything that needs to be ran alongside the initialisation of the world
 Hooks.once('init', () => {
@@ -33,16 +31,14 @@ Hooks.once('init', () => {
     makeDefault: true
   })
 
-  // Load the settings into the world
-  registerModuleSettings()
-
   // Input any helpers the module has
-  loadHelpers()
+  _loadHelpers()
 
   // Preload any Handlebars partials we need
-  preloadTemplates()
+  _preloadTemplates()
 })
 
 Hooks.once('ready', () => {
-  initCssSettings()
+  // Load the settings into the world
+  _registerModuleSettings()
 })

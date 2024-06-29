@@ -8,27 +8,21 @@
       </h1>
     </div>
     <div class="trackers">
-      <div class="tracker">
-        <label class="title">{{moraleLabel}}</label>
-        <label class="content">{{actor.system.morale}}</label>
-      </div>
-      <div class="tracker">
-        <label class="title">{{incomeLabel}}</label>
-        <label class="content">{{appendCurrency actor.system.income}}</label>
-      </div>
-      <div class="tracker">
-        <label class="title">{{populationLabel}}</label>
-        <label class="content">{{actor.system.population}}</label>
-      </div>
+      {{#each header_trackers as |tracker|}}
+        <div class="tracker">
+          <label class="title">{{localize tracker.label}}</label>
+          <label class="content">{{tracker.prepend}}{{tracker.value}}{{tracker.append}}</label>
+        </div>
+      {{/each}}
     </div>
   </header>
 
   {{!-- Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <div class="item" data-tab="overview">{{localize "settlement-sheets.Overview"}}</div>
-    <div class="item" data-tab="statistics">{{localize "settlement-sheets.Statistics"}}</div>
-    <div class="item" data-tab="buildings">{{localize "settlement-sheets.Buildings"}}</div>
-    <div class="item" data-tab="notes">{{localize "settlement-sheets.Notes"}}</div>
+    <div class="item" data-tab="overview">{{localize "settlement-sheets.TABS.Overview"}}</div>
+    <div class="item" data-tab="statistics">{{localize "settlement-sheets.TABS.Statistics"}}</div>
+    <div class="item" data-tab="buildings">{{localize "settlement-sheets.TABS.Buildings"}}</div>
+    <div class="item" data-tab="notes">{{localize "settlement-sheets.TABS.Notes"}}</div>
   </nav>
 
   {{!-- Body --}}

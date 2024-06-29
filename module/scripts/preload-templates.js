@@ -4,7 +4,7 @@
  * Pre-loaded templates are compiled and cached for fast access when rendering
  * @return {Promise}
  */
-export const preloadTemplates = async function () {
+export const _preloadTemplates = async function () {
   console.log('Preloading partials for the Settlement Sheets module.')
 
   // Define template paths to load

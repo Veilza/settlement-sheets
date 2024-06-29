@@ -1,23 +1,17 @@
 <div class="tab statistics" data-group="primary" data-tab="statistics">
   <div class="trackers grid grid-3col">
-    <div class="tracker">
-      <label class="title">{{localize 'settlement-sheets.Cost'}}</label>
-      <label class="content"><input type="number" name="system.cost" value="{{item.system.cost}}"/></label>
-    </div>
-
-    <div class="tracker">
-      <label class="title">{{moraleLabel}}</label>
-      <label class="content"><input type="number" name="system.moraleImpact" value="{{item.system.moraleImpact}}"/></label>
-    </div>
-
-    <div class="tracker">
-      <label class="title">{{populationLabel}}</label>
-      <label class="content"><input type="number" name="system.populationImpact" value="{{item.system.populationImpact}}"/></label>
-    </div>
-
-    <div class="tracker">
-      <label class="title">{{incomeLabel}}</label>
-      <label class="content"><input type="number" name="system.incomeImpact" value="{{item.system.incomeImpact}}"/></label>
-    </div>
+    {{#each trackers as |tracker|}}
+      <div class="tracker">
+        <label class="title">{{localize tracker.label}}</label>
+        <label class="content">
+          {{#ifeq tracker.type 'number'}}
+            <input type="number" name="system.trackers.{{id}}.value" value="{{tracker.value}}"/>
+          {{/ifeq}}
+          {{#ifeq tracker.type 'string'}}
+            <input type="text" name="system.trackers.{{id}}.value" value="{{tracker.value}}"/>
+          {{/ifeq}}
+        </label>
+      </div>
+    {{/each}}
   </div>
 </div>

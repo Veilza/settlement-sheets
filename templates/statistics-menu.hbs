@@ -1,0 +1,47 @@
+<form autocomplete="off" class="settlement-sheets-settings-menu">
+  {{#each statistics as |stat id|}}
+    <div class="stat-section" id="{{id}}">
+        <h2><input type="text" name="{{id}}.label" value="{{localize stat.label}}"></h2>
+        <div class="grid grid-3col">
+          <div>
+            <label for="{{id}}.type">{{localize 'Type'}}</label>
+            <select id="{{id}}.type" name="{{id}}.type">
+              {{selectOptions ../statTypeChoices selected=stat.type localize=true}}
+            </select>
+          </div>
+          <div>
+            <label for="{{id}}.prepend">{{localize 'settlement-sheets.STATS.Prepend'}}</label>
+            <input type="text" name="{{id}}.prepend" value="{{stat.prepend}}">
+          </div>
+          <div>
+            <label for="{{id}}.append">{{localize 'settlement-sheets.STATS.Append'}}</label>
+            <input type="text" name="{{id}}.append" value="{{stat.append}}">
+          </div>
+        </div>
+        <div class="grid grid-3col">
+          <div>
+            <label for="{{id}}.showToPlayers">{{localize 'settlement-sheets.STATS.ShowToPlayers'}}</label>
+            <input type="checkbox" name="{{id}}.showToPlayers" {{#if stat.showToPlayers}}checked{{/if}}>
+          </div>
+          <div>
+            <label for="{{id}}.showInHeader">{{localize 'settlement-sheets.STATS.ShowInHeader'}}</label>
+            <input type="checkbox" name="{{id}}.showInHeader" {{#if stat.showInHeader}}checked{{/if}}>
+          </div>
+          <div>
+            <label for="{{id}}.showOnSettlement">{{localize 'settlement-sheets.STATS.ShowOnSettlement'}}</label>
+            <input type="checkbox" name="{{id}}.showOnSettlement" {{#if stat.showOnSettlement}}checked{{/if}}>
+          </div>
+        </div>
+    </div>
+    <hr/>
+  {{/each}}
+  <div id="statisticsContainer"></div>
+  <div class="button-section grid grid-2col">
+    <button type="button" class="reset-statistics">
+      <i class="fas fa-redo"></i> {{localize 'settlement-sheets.STATS.ResetStatistics'}}
+    </button>
+    <button type="submit" class="save-statistics">
+      <i class="fas fa-save"></i> {{localize 'Save'}}
+    </button>
+  </div>
+</form>

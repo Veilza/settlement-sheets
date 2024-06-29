@@ -1,0 +1,40 @@
+.settlement-sheets-settings-menu h1 {
+  text-align: center;
+}
+
+.settlement-sheets-settings-menu .stat-section {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.settlement-sheets-settings-menu .stat-section h2 {
+  margin-top: 0;
+}
+
+.settlement-sheets-settings-menu label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.settlement-sheets-settings-menu input[type="text"],
+input[type="number"] {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.settlement-sheets-settings-menu input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.settlement-sheets-settings-menu .button-section {
+  text-align: center;
+}
+
+.settlement-sheets-settings-menu button {
+  border: none;
+  cursor: pointer;
+}

@@ -18,33 +18,10 @@ export class BuildingModel extends foundry.abstract.TypeDataModel {
       blank: true
     })
 
-    // Statistics tab
-    schema.cost = new fields.NumberField({
-      nullable: false,
-      integer: true,
-      initial: 0,
-      label: 'settlement-sheets.Cost'
-    })
-
-    schema.moraleImpact = new fields.NumberField({
-      nullable: false,
-      integer: true,
-      initial: 0,
-      label: 'settlement-sheets.MoraleImpact'
-    })
-
-    schema.incomeImpact = new fields.NumberField({
-      nullable: false,
-      integer: true,
-      initial: 0,
-      label: 'settlement-sheets.IncomeImpact'
-    })
-
-    schema.populationImpact = new fields.NumberField({
-      nullable: false,
-      integer: true,
-      initial: 0,
-      label: 'settlement-sheets.PopulationImpact'
+    // Sheet trackers
+    schema.trackers = new fields.ObjectField({
+      initial: {},
+      required: false
     })
 
     return schema

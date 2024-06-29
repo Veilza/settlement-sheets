@@ -4,43 +4,43 @@
 const cssSettingsList = [
   {
     settingId: 'baseColor',
-    label: 'Base Color',
-    hint: 'Sets the base color for the sheet.',
+    label: 'settlement-sheets.CSS.BaseColor',
+    hint: 'settlement-sheets.CSS.BaseColorHint',
     variable: '--settlement-sheet-base-color',
     default: '#74747480'
   },
   {
     settingId: 'backgroundColor',
-    label: 'Background Color',
-    hint: 'Sets the background color for the sheet.',
+    label: 'settlement-sheets.CSS.BackgroundColor',
+    hint: 'settlement-sheets.CSS.BackgroundColorHint',
     variable: '--settlement-sheet-background-color',
     default: '#f0e9dd'
   },
   {
     settingId: 'navbarTextColor',
-    label: 'Navbar Text Color',
-    hint: 'Sets a custom color for the navbar text.',
+    label: 'settlement-sheets.CSS.NavbarTextColor',
+    hint: 'settlement-sheets.CSS.NavbarTextColorHint',
     variable: '--settlement-sheet-navbar-text-color',
     default: '#f0f0e0'
   },
   {
     settingId: 'navbarLinkHighlight',
-    label: 'Navbar Link Highlight Color',
-    hint: 'Sets the highlight color for the navbar links.',
+    label: 'settlement-sheets.CSS.NavbarLinkHighlight',
+    hint: 'settlement-sheets.CSS.NavbarLinkHighlightHint',
     variable: '--settlement-sheet-navbar-link-highlight',
     default: '#fc2020'
   },
   {
     settingId: 'navbarGradient1',
-    label: 'Navbar Gradient 1',
-    hint: 'Sets the first color of the navbar gradient.',
+    label: 'settlement-sheets.CSS.NavbarGradient1',
+    hint: 'settlement-sheets.CSS.NavbarGradient1Hint',
     variable: '--settlement-sheet-navbar-gradient-1',
     default: '#272727a4'
   },
   {
     settingId: 'navbarGradient2',
-    label: 'Navbar Gradient 2',
-    hint: 'Sets the second color of the navbar gradient.',
+    label: 'settlement-sheets.CSS.NavbarGradient2',
+    hint: 'settlement-sheets.CSS.NavbarGradient2Hint',
     variable: '--settlement-sheet-navbar-gradient-2',
     default: '#1f1f1fa4'
   }
@@ -49,12 +49,12 @@ const cssSettingsList = [
 /**
  * Function to register CSS settings on game start
  */
-export const registerCssSettings = async () => {
+export const _registerCssSettings = async () => {
   // Iterate through each setting and register it
   cssSettingsList.forEach((setting) => {
     game.settings.register('settlement-sheets', setting.settingId, {
-      name: setting.label,
-      hint: setting.hint,
+      name: game.i18n.localize(setting.label),
+      hint: game.i18n.localize(setting.hint),
       scope: 'world',
       config: true,
       default: setting.default,
@@ -62,7 +62,7 @@ export const registerCssSettings = async () => {
       onChange: (newColor) => {
         // If the new color isn't an empty string, send to the updateCSSVariable function
         if (newColor !== '') {
-          updateCSSVariable(setting.settingId, setting.variable, newColor)
+          _updateCSSVariable(setting.settingId, setting.variable, newColor)
         } else {
           // Reset to default if blank
           const defaultColor = game.settings.settings.get(`settlement-sheets.${setting.settingId}`).default
@@ -71,17 +71,20 @@ export const registerCssSettings = async () => {
       }
     })
   })
+
+  // Initialize CSS settings on ready
+  _initCssSettings()
 }
 
 /**
  * Function to initialize CSS styling customizations on game start
  */
-export const initCssSettings = async () => {
+export const _initCssSettings = async () => {
   // Iterate through each setting and update the variable if needed
   cssSettingsList.forEach((setting) => {
     const value = game.settings.get('settlement-sheets', setting.settingId)
     if (value) {
-      updateCSSVariable(setting.settingId, setting.variable, value)
+      _updateCSSVariable(setting.settingId, setting.variable, value)
     }
   })
 }
@@ -89,7 +92,7 @@ export const initCssSettings = async () => {
 /**
  * Function to update the CSS variable
  */
-function updateCSSVariable (settingName, variableName, newColor) {
+function _updateCSSVariable (settingName, variableName, newColor) {
   let validColor = true
   // If no value is being provided for variableName or settingName, we do nothing
   if (!variableName || !settingName) return
