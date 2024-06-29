@@ -30,7 +30,7 @@ jobs:
                             "notes": "https://github.com/veilza/settlement-sheets/releases/tag/${{ github.event.release.tag_name }}",
                             "compatibility": {
                                 "minimum": "12",
-                                "verified": "12.327",
+                                "verified": "12.328",
                                 "maximum": ""
                             }
                         }

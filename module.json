@@ -16,7 +16,7 @@
 	"version": "1.0.0",
 	"compatibility": {
 		"minimum": 12,
-		"verified": 12.327
+		"verified": 12.328
 	},
 	"socket": "true",
   "esmodules": [
