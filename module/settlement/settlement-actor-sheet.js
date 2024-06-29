@@ -34,6 +34,9 @@ export class SettlementActorSheet extends ActorSheet {
     // Define the context we're using
     const context = await super.getData(options)
 
+    // Prepare items.
+    await this._prepareItems(context)
+
     // Manipulate any data in this context that we need to
 
     // Tracker data from settings
@@ -58,10 +61,10 @@ export class SettlementActorSheet extends ActorSheet {
 
       // If the context has a tracker with the key, grab its current value
       if (Object.prototype.hasOwnProperty.call(trackerData, id)) {
-        statisticData = Object.assign({
+        statisticData = Object.assign({}, value, {
           id,
           value: trackerData[id].value
-        }, value)
+        })
       } else { // Otherwise, add it to the context and set it as some default data
         // Determine the correct default value to use based on type
         let defaultValue
@@ -78,10 +81,10 @@ export class SettlementActorSheet extends ActorSheet {
         })
 
         // Assign the same data to the context
-        statisticData = Object.assign({
+        statisticData = Object.assign({}, value, {
           id,
           value: defaultValue
-        }, value)
+        })
       }
 
       // Push to either header_trackers or page_trackers depending on showInHeader
@@ -123,9 +126,6 @@ export class SettlementActorSheet extends ActorSheet {
       })
     }
 
-    // Prepare items.
-    await this._prepareItems(context)
-
     // Return the context once we're done with our changes
     return context
   }
@@ -154,6 +154,22 @@ export class SettlementActorSheet extends ActorSheet {
           secrets: this.object.isOwner,
           relativeTo: this.object
         })
+
+        // Iterate through each tracker in the building
+        const statisticsList = game.settings.get('settlement-sheets', 'sheetStatistics')
+        for (const [tracker, details] of Object.entries(statisticsList)) {
+          if (details.type === 'number') {
+            // Initialize the tracker with a default value if it doesn't already exist
+            if (!context.actor.system.trackers[tracker]) {
+              context.actor.system.trackers[tracker] = {
+                value: 0
+              }
+            }
+
+            // Add the item's tracker's value to the corresponding total
+            context.actor.system.trackers[tracker].value += i.system.trackers[tracker]?.value || 0
+          }
+        }
 
         // Append to the buildings list
         buildings.push(i)
@@ -233,7 +249,7 @@ export class SettlementActorSheet extends ActorSheet {
         },
         {
           action: 'cancel',
-          label: game.i18n.localize('settlement-sheets.Cancel'),
+          label: game.i18n.localize('Cancel'),
           icon: 'fa-solid fa-xmark'
         }
       ]
