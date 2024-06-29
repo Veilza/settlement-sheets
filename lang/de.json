@@ -1,0 +1,68 @@
+{
+  "TYPES.Actor.settlement-sheets.settlement": "Siedlung",
+  "TYPES.Item.settlement-sheets.building": "Gebäude",
+  "settlement-sheets": {
+    "SettlementSheets": "Siedlungsblätter",
+    "EditImage": "Bild bearbeiten",
+    "PublicNotes": "Öffentliche Notizen",
+    "PrivateNotes": "Private Notizen",
+    "SettlementDescription": "Siedlungsbeschreibung",
+    "InfluentialPeople": "Einflussreiche Personen",
+    "DetailedStatistics": "Detaillierte Statistiken",
+    "MostPopulousBuildings": "Bevölkerungsreichste Gebäude",
+    "EditBuilding": "Gebäude bearbeiten",
+    "NewBuilding": "Neues Gebäude",
+    "AddNewBuilding": "Neues Gebäude hinzufügen",
+    "AddNewBuildingHint": "Klicken Sie, um ein neues Gebäude zu dieser Siedlung hinzuzufügen!",
+    "RemoveBuilding": "Gebäude entfernen",
+    "RemoveBuildingHint": "Sind Sie sicher, dass Sie dieses Gebäude entfernen möchten?\nAlle Daten in diesem Gebäude werden gelöscht und können nicht wiederhergestellt werden.",
+
+    "TABS": {
+      "Overview": "Übersicht",
+      "Statistics": "Statistiken",
+      "Buildings": "Gebäude",
+      "Notes": "Notizen"
+    },
+
+    "CSS": {
+      "BaseColor": "Grundfarbe",
+      "BaseColorHint": "Legt die Grundfarbe für die Siedlungs- und Gebäudeblätter fest.",
+
+      "BackgroundColor": "Hintergrundfarbe",
+      "BackgroundColorHint": "Legt die Hintergrundfarbe für die Siedlungs- und Gebäudeblätter fest.",
+
+      "NavbarTextColor": "Navbar-Textfarbe",
+      "NavbarTextColorHint": "Legt eine benutzerdefinierte Farbe für den Navbar-Text fest.",
+
+      "NavbarLinkHighlight": "Navbar-Link-Highlight-Farbe",
+      "NavbarLinkHighlightHint": "Legt die Highlight-Farbe für die Navbar-Links fest.",
+
+      "NavbarGradient1": "Navbar-Verlauf 1",
+      "NavbarGradient1Hint": "Legt die erste Farbe des Navbar-Verlaufs fest.",
+
+      "NavbarGradient2": "Navbar-Verlauf 2",
+      "NavbarGradient2Hint": "Legt die zweite Farbe des Navbar-Verlaufs fest."
+    },
+
+    "STATS": {
+      "Income": "Einkommen",
+      "Population": "Bevölkerung",
+      "Morale": "Moral",
+      "Cost": "Kosten",
+      "Prepend": "Vorstellen",
+      "Append": "Anhängen",
+      "ShowToPlayers": "Spielern zeigen",
+      "ShowInHeader": "Im Header anzeigen",
+      "ShowOnSettlement": "Auf Siedlung anzeigen",
+      "ToggleVisible": "Sichtbarkeit für Spieler umschalten",
+      "SheetStatistics": "Blattstatistiken",
+      "StatisticsMenu": "Statistikmenü",
+      "EditStatistics": "Statistiken bearbeiten",
+      "EditStatisticsHint": "Bearbeiten Sie die Statistiken, wie sie auf Siedlungs- und Gebäudeblättern erscheinen.",
+      "ResetStatistics": "Statistiken zurücksetzen",
+      "ResetStatisticsHint": "Sind Sie sicher, dass Sie alle Statistikdaten zurücksetzen möchten?\nDies löscht alle benutzerdefinierten Statistiken und Änderungen, einschließlich aller benutzerdefinierten Daten auf Siedlungs- und Gebäudeblättern.",
+      "NewStatistic": "Neue Statistik",
+      "AddNewStatistic": "Neue Statistik hinzufügen"
+    }
+  }
+}

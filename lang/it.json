@@ -1,0 +1,68 @@
+{
+  "TYPES.Actor.settlement-sheets.settlement": "Insediamento",
+  "TYPES.Item.settlement-sheets.building": "Edificio",
+  "settlement-sheets": {
+    "SettlementSheets": "Schede Insediamento",
+    "EditImage": "Modifica Immagine",
+    "PublicNotes": "Note Pubbliche",
+    "PrivateNotes": "Note Private",
+    "SettlementDescription": "Descrizione dell'Insediamento",
+    "InfluentialPeople": "Persone Influenti",
+    "DetailedStatistics": "Statistiche Dettagliate",
+    "MostPopulousBuildings": "Edifici più Popolosi",
+    "EditBuilding": "Modifica Edificio",
+    "NewBuilding": "Nuovo Edificio",
+    "AddNewBuilding": "Aggiungi Nuovo Edificio",
+    "AddNewBuildingHint": "Clicca per aggiungere un nuovo edificio a questo insediamento!",
+    "RemoveBuilding": "Rimuovi Edificio",
+    "RemoveBuildingHint": "Sei sicuro di voler rimuovere questo edificio?\nTutti i dati in questo edificio saranno eliminati e non potranno essere recuperati.",
+
+    "TABS": {
+      "Overview": "Panoramica",
+      "Statistics": "Statistiche",
+      "Buildings": "Edifici",
+      "Notes": "Note"
+    },
+
+    "CSS": {
+      "BaseColor": "Colore Base",
+      "BaseColorHint": "Imposta il colore base per le schede di insediamento e edificio.",
+
+      "BackgroundColor": "Colore di Sfondo",
+      "BackgroundColorHint": "Imposta il colore di sfondo per le schede di insediamento e edificio.",
+
+      "NavbarTextColor": "Colore del Testo della Navbar",
+      "NavbarTextColorHint": "Imposta un colore personalizzato per il testo della navbar.",
+
+      "NavbarLinkHighlight": "Colore di Evidenziazione del Link della Navbar",
+      "NavbarLinkHighlightHint": "Imposta il colore di evidenziazione per i link della navbar.",
+
+      "NavbarGradient1": "Gradiente Navbar 1",
+      "NavbarGradient1Hint": "Imposta il primo colore del gradiente della navbar.",
+
+      "NavbarGradient2": "Gradiente Navbar 2",
+      "NavbarGradient2Hint": "Imposta il secondo colore del gradiente della navbar."
+    },
+
+    "STATS": {
+      "Income": "Reddito",
+      "Population": "Popolazione",
+      "Morale": "Morale",
+      "Cost": "Costo",
+      "Prepend": "Preporre",
+      "Append": "Appendere",
+      "ShowToPlayers": "Mostra ai Giocatori",
+      "ShowInHeader": "Mostra nell'Intestazione",
+      "ShowOnSettlement": "Mostra sull'Insediamento",
+      "ToggleVisible": "Attiva/Disattiva Visibile ai Giocatori",
+      "SheetStatistics": "Statistiche della Scheda",
+      "StatisticsMenu": "Menu delle Statistiche",
+      "EditStatistics": "Modifica Statistiche",
+      "EditStatisticsHint": "Modifica le statistiche come appaiono nelle schede di insediamento e edificio.",
+      "ResetStatistics": "Reimposta Statistiche",
+      "ResetStatisticsHint": "Sei sicuro di voler reimpostare tutti i dati statistici?\nQuesto eliminerà tutte le statistiche e le modifiche personalizzate che hai fatto, inclusi i dati personalizzati nelle schede di insediamento e edificio.",
+      "NewStatistic": "Nuova Statistica",
+      "AddNewStatistic": "Aggiungi Nuova Statistica"
+    }
+  }
+}

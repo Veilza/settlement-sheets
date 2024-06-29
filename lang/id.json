@@ -1,0 +1,68 @@
+{
+  "TYPES.Actor.settlement-sheets.settlement": "Pemukiman",
+  "TYPES.Item.settlement-sheets.building": "Bangunan",
+  "settlement-sheets": {
+    "SettlementSheets": "Lembar Pemukiman",
+    "EditImage": "Edit Gambar",
+    "PublicNotes": "Catatan Publik",
+    "PrivateNotes": "Catatan Pribadi",
+    "SettlementDescription": "Deskripsi Pemukiman",
+    "InfluentialPeople": "Orang Berpengaruh",
+    "DetailedStatistics": "Statistik Terperinci",
+    "MostPopulousBuildings": "Bangunan Terpadat",
+    "EditBuilding": "Edit Bangunan",
+    "NewBuilding": "Bangunan Baru",
+    "AddNewBuilding": "Tambah Bangunan Baru",
+    "AddNewBuildingHint": "Klik untuk menambahkan bangunan baru ke pemukiman ini!",
+    "RemoveBuilding": "Hapus Bangunan",
+    "RemoveBuildingHint": "Apakah Anda yakin ingin menghapus bangunan ini?\nSemua data di bangunan ini akan dihapus dan tidak dapat dipulihkan.",
+
+    "TABS": {
+      "Overview": "Ikhtisar",
+      "Statistics": "Statistik",
+      "Buildings": "Bangunan",
+      "Notes": "Catatan"
+    },
+
+    "CSS": {
+      "BaseColor": "Warna Dasar",
+      "BaseColorHint": "Mengatur warna dasar untuk lembar pemukiman dan bangunan.",
+
+      "BackgroundColor": "Warna Latar Belakang",
+      "BackgroundColorHint": "Mengatur warna latar belakang untuk lembar pemukiman dan bangunan.",
+
+      "NavbarTextColor": "Warna Teks Navbar",
+      "NavbarTextColorHint": "Mengatur warna khusus untuk teks navbar.",
+
+      "NavbarLinkHighlight": "Warna Sorotan Tautan Navbar",
+      "NavbarLinkHighlightHint": "Mengatur warna sorotan untuk tautan navbar.",
+
+      "NavbarGradient1": "Gradasi Navbar 1",
+      "NavbarGradient1Hint": "Mengatur warna pertama dari gradasi navbar.",
+
+      "NavbarGradient2": "Gradasi Navbar 2",
+      "NavbarGradient2Hint": "Mengatur warna kedua dari gradasi navbar."
+    },
+
+    "STATS": {
+      "Income": "Pendapatan",
+      "Population": "Populasi",
+      "Morale": "Moral",
+      "Cost": "Biaya",
+      "Prepend": "Tambahkan di Depan",
+      "Append": "Tambahkan di Belakang",
+      "ShowToPlayers": "Tampilkan kepada Pemain",
+      "ShowInHeader": "Tampilkan di Header",
+      "ShowOnSettlement": "Tampilkan di Pemukiman",
+      "ToggleVisible": "Alihkan Terlihat untuk Pemain",
+      "SheetStatistics": "Statistik Lembar",
+      "StatisticsMenu": "Menu Statistik",
+      "EditStatistics": "Edit Statistik",
+      "EditStatisticsHint": "Edit statistik seperti yang muncul di lembar pemukiman dan bangunan.",
+      "ResetStatistics": "Reset Statistik",
+      "ResetStatisticsHint": "Apakah Anda yakin ingin mereset semua data statistik?\nIni akan menghapus semua statistik dan modifikasi khusus yang telah Anda buat, termasuk data khusus pada lembar pemukiman dan bangunan.",
+      "NewStatistic": "Statistik Baru",
+      "AddNewStatistic": "Tambahkan Statistik Baru"
+    }
+  }
+}

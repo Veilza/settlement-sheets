@@ -31,6 +31,31 @@
 			"lang": "en",
 			"name": "English",
 			"path": "lang/en.json"
+		},
+		{
+			"lang": "de",
+			"name": "German",
+			"path": "lang/de.json"
+		},
+		{
+			"lang": "es",
+			"name": "Spanish",
+			"path": "lang/es.json"
+		},
+		{
+			"lang": "fr",
+			"name": "French",
+			"path": "lang/fr.json"
+		},
+		{
+			"lang": "id",
+			"name": "Indonesian",
+			"path": "lang/id.json"
+		},
+		{
+			"lang": "it",
+			"name": "Italian",
+			"path": "lang/it.json"
 		}
 	],
 	"manifest": "https://github.com/veilza/settlement-sheets/releases/download/1.0.0/module.json",

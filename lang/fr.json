@@ -1,0 +1,68 @@
+{
+  "TYPES.Actor.settlement-sheets.settlement": "Colonisation",
+  "TYPES.Item.settlement-sheets.building": "Bâtiment",
+  "settlement-sheets": {
+    "SettlementSheets": "Fiches de Colonisation",
+    "EditImage": "Modifier l'Image",
+    "PublicNotes": "Notes Publiques",
+    "PrivateNotes": "Notes Privées",
+    "SettlementDescription": "Description de la Colonisation",
+    "InfluentialPeople": "Personnes Influentes",
+    "DetailedStatistics": "Statistiques Détaillées",
+    "MostPopulousBuildings": "Bâtiments les Plus Peuplés",
+    "EditBuilding": "Modifier le Bâtiment",
+    "NewBuilding": "Nouveau Bâtiment",
+    "AddNewBuilding": "Ajouter un Nouveau Bâtiment",
+    "AddNewBuildingHint": "Cliquez pour ajouter un nouveau bâtiment à cette colonisation!",
+    "RemoveBuilding": "Supprimer le Bâtiment",
+    "RemoveBuildingHint": "Êtes-vous sûr de vouloir supprimer ce bâtiment?\nToutes les données de ce bâtiment seront supprimées et ne pourront pas être récupérées.",
+
+    "TABS": {
+      "Overview": "Aperçu",
+      "Statistics": "Statistiques",
+      "Buildings": "Bâtiments",
+      "Notes": "Notes"
+    },
+
+    "CSS": {
+      "BaseColor": "Couleur de Base",
+      "BaseColorHint": "Définit la couleur de base pour les fiches de colonisation et de bâtiment.",
+
+      "BackgroundColor": "Couleur de Fond",
+      "BackgroundColorHint": "Définit la couleur de fond pour les fiches de colonisation et de bâtiment.",
+
+      "NavbarTextColor": "Couleur du Texte de la Navbar",
+      "NavbarTextColorHint": "Définit une couleur personnalisée pour le texte de la barre de navigation.",
+
+      "NavbarLinkHighlight": "Couleur de Surlignage des Liens de la Navbar",
+      "NavbarLinkHighlightHint": "Définit la couleur de surlignage pour les liens de la barre de navigation.",
+
+      "NavbarGradient1": "Dégradé de la Navbar 1",
+      "NavbarGradient1Hint": "Définit la première couleur du dégradé de la barre de navigation.",
+
+      "NavbarGradient2": "Dégradé de la Navbar 2",
+      "NavbarGradient2Hint": "Définit la deuxième couleur du dégradé de la barre de navigation."
+    },
+
+    "STATS": {
+      "Income": "Revenu",
+      "Population": "Population",
+      "Morale": "Moral",
+      "Cost": "Coût",
+      "Prepend": "Préfixer",
+      "Append": "Suffixer",
+      "ShowToPlayers": "Montrer aux Joueurs",
+      "ShowInHeader": "Afficher dans l'En-tête",
+      "ShowOnSettlement": "Afficher sur la Colonisation",
+      "ToggleVisible": "Basculer Visible pour les Joueurs",
+      "SheetStatistics": "Statistiques de la Fiche",
+      "StatisticsMenu": "Menu des Statistiques",
+      "EditStatistics": "Modifier les Statistiques",
+      "EditStatisticsHint": "Modifiez les statistiques telles qu'elles apparaissent sur les fiches de colonisation et de bâtiment.",
+      "ResetStatistics": "Réinitialiser les Statistiques",
+      "ResetStatisticsHint": "Êtes-vous sûr de vouloir réinitialiser toutes les données statistiques?\nCela supprimera toutes les statistiques et modifications personnalisées que vous avez apportées, y compris toutes les données personnalisées sur les fiches de colonisation et de bâtiment.",
+      "NewStatistic": "Nouvelle Statistique",
+      "AddNewStatistic": "Ajouter une Nouvelle Statistique"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "TYPES.Actor.settlement-sheets.settlement": "Asentamiento",
+  "TYPES.Item.settlement-sheets.building": "Edificio",
+  "settlement-sheets": {
+    "SettlementSheets": "Hojas de Asentamiento",
+    "EditImage": "Editar Imagen",
+    "PublicNotes": "Notas Públicas",
+    "PrivateNotes": "Notas Privadas",
+    "SettlementDescription": "Descripción del Asentamiento",
+    "InfluentialPeople": "Personas Influyentes",
+    "DetailedStatistics": "Estadísticas Detalladas",
+    "MostPopulousBuildings": "Edificios más Populosos",
+    "EditBuilding": "Editar Edificio",
+    "NewBuilding": "Nuevo Edificio",
+    "AddNewBuilding": "Añadir Nuevo Edificio",
+    "AddNewBuildingHint": "¡Haga clic para añadir un nuevo edificio a este asentamiento!",
+    "RemoveBuilding": "Eliminar Edificio",
+    "RemoveBuildingHint": "¿Está seguro de que desea eliminar este edificio?\nTodos los datos en este edificio serán eliminados y no se podrán recuperar.",
+
+    "TABS": {
+      "Overview": "Resumen",
+      "Statistics": "Estadísticas",
+      "Buildings": "Edificios",
+      "Notes": "Notas"
+    },
+
+    "CSS": {
+      "BaseColor": "Color Base",
+      "BaseColorHint": "Establece el color base para las hojas de asentamiento y edificios.",
+
+      "BackgroundColor": "Color de Fondo",
+      "BackgroundColorHint": "Establece el color de fondo para las hojas de asentamiento y edificios.",
+
+      "NavbarTextColor": "Color del Texto de la Barra de Navegación",
+      "NavbarTextColorHint": "Establece un color personalizado para el texto de la barra de navegación.",
+
+      "NavbarLinkHighlight": "Color de Resaltado del Enlace de la Barra de Navegación",
+      "NavbarLinkHighlightHint": "Establece el color de resaltado para los enlaces de la barra de navegación.",
+
+      "NavbarGradient1": "Gradiente de la Barra de Navegación 1",
+      "NavbarGradient1Hint": "Establece el primer color del gradiente de la barra de navegación.",
+
+      "NavbarGradient2": "Gradiente de la Barra de Navegación 2",
+      "NavbarGradient2Hint": "Establece el segundo color del gradiente de la barra de navegación."
+    },
+
+    "STATS": {
+      "Income": "Ingresos",
+      "Population": "Población",
+      "Morale": "Moral",
+      "Cost": "Costo",
+      "Prepend": "Preceder",
+      "Append": "Anexar",
+      "ShowToPlayers": "Mostrar a los Jugadores",
+      "ShowInHeader": "Mostrar en el Encabezado",
+      "ShowOnSettlement": "Mostrar en el Asentamiento",
+      "ToggleVisible": "Alternar Visibilidad a Jugadores",
+      "SheetStatistics": "Estadísticas de la Hoja",
+      "StatisticsMenu": "Menú de Estadísticas",
+      "EditStatistics": "Editar Estadísticas",
+      "EditStatisticsHint": "Edite las estadísticas tal como aparecen en las hojas de asentamiento y edificios.",
+      "ResetStatistics": "Restablecer Estadísticas",
+      "ResetStatisticsHint": "¿Está seguro de que desea restablecer todos los datos estadísticos?\nEsto eliminará cualquier estadística y modificación personalizada que haya hecho, incluyendo cualquier dato personalizado en las hojas de asentamiento y edificios.",
+      "NewStatistic": "Nueva Estadística",
+      "AddNewStatistic": "Añadir Nueva Estadística"
+    }
+  }
+}
