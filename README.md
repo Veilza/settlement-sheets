@@ -2,6 +2,8 @@
 
 Settlement Sheets is a system agnostic module for FoundryVTT games that allows gamemasters to keep track of individual settlements like actor sheets, including the ability to keep track of population, wealth, buildings, and much more!
 
+![preview](./assets/ModulePreview.png)
+
 ## Donation Information
 If you'd like to donate to me, you can through [Paypal](https://www.paypal.com/donate/?hosted_button_id=T5ZD4T9PSZZVA) or [Ko-Fi](https://ko-fi.com/veilzakinsemi).
 
