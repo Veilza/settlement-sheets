@@ -4,7 +4,12 @@
     {{#each page_trackers as |tracker|}}
       <div class="tracker">
         <label class="title">{{tracker.label}}</label>
-        <label class="content">{{tracker.prepend}}{{tracker.value}}{{tracker.append}}</label>
+        {{#ifeq tracker.type 'number'}}
+          <label class="content">{{tracker.prepend}}{{tracker.value}}{{tracker.append}}</label>
+        {{/ifeq}}
+        {{#ifeq tracker.type 'string'}}
+          <input type="text" name="system.trackers.{{id}}.value" value="{{tracker.value}}"/>
+        {{/ifeq}}
       </div>
     {{/each}}
   </div>
