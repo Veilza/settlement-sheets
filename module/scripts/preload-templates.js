@@ -18,6 +18,7 @@ export const _preloadTemplates = async function () {
     // Building sheet
     'modules/settlement-sheets/templates/parts/building/overview.hbs',
     'modules/settlement-sheets/templates/parts/building/statistics.hbs',
+    'modules/settlement-sheets/templates/parts/building/notes.hbs',
 
     // Dialog templates
     'modules/settlement-sheets/templates/remove-building-dialog.hbs'

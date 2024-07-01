@@ -13,14 +13,18 @@
   <nav class="sheet-tabs tabs" data-group="primary">
     <div class="item" data-tab="overview">{{localize "settlement-sheets.TABS.Overview"}}</div>
     <div class="item" data-tab="statistics">{{localize "settlement-sheets.TABS.Statistics"}}</div>
+    <div class="item" data-tab="notes">{{localize "settlement-sheets.TABS.Notes"}}</div>
   </nav>
 
   {{!-- Body --}}
   <section class="sheet-body">
-    {{!-- Group Members Tab --}}
+    {{!-- Overview Tab --}}
     {{> "modules/settlement-sheets/templates/parts/building/overview.hbs"}}
 
-    {{!-- Shared Features Tab --}}
+    {{!-- Statistics Tab --}}
     {{> "modules/settlement-sheets/templates/parts/building/statistics.hbs"}}
+    
+    {{!-- Notes Tab --}}
+    {{> "modules/settlement-sheets/templates/parts/building/notes.hbs"}}
   </section>
 </form>

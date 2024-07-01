@@ -30,6 +30,11 @@ export class BuildingItemSheet extends ItemSheet {
     // Define the context we're using
     const context = await super.getData(options)
 
+    // Generate quick references in the context for permissions levels
+    if (!game.user.isGM && this.item.limited) context.permissions = 'limited'
+    if (!game.user.isGM && this.item.observer) context.permissions = 'observer'
+    if (game.user.isGM || this.item.isOwner) context.permissions = 'owner'
+
     // Manipulate any data in this context that we need to
 
     // Tracker data from settings
@@ -98,9 +103,19 @@ export class BuildingItemSheet extends ItemSheet {
       relativeTo: this.object
     })
 
-    if (!game.user.isGM && this.item.limited) context.permissions = 'limited'
-    if (!game.user.isGM && this.item.observer) context.permissions = 'observer'
-    if (game.user.isGM || this.item.isOwner) context.permissions = 'owner'
+    // Private and Public notes
+    context.note = {
+      public: await TextEditor.enrichHTML(this.object.system.note.public, {
+        async: true,
+        secrets: this.object.isOwner,
+        relativeTo: this.object
+      }),
+      private: await TextEditor.enrichHTML(this.object.system.note.private, {
+        async: true,
+        secrets: this.object.isOwner,
+        relativeTo: this.object
+      })
+    }
 
     // Return the context once we're done with our changes
     return context

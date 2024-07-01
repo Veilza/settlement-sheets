@@ -81,7 +81,9 @@
       "building": {
         "htmlFields": [
           "description",
-          "benefits"
+          "benefits",
+          "note.public",
+          "note.private"
         ],
         "objectFields": [
           "trackers"

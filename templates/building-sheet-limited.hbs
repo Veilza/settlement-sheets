@@ -12,11 +12,17 @@
   {{!-- Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     <div class="item" data-tab="overview">{{localize "settlement-sheets.TABS.Overview"}}</div>
+    {{#ifeq permissions 'limited'}}
+      <div class="item" data-tab="notes">{{localize "settlement-sheets.TABS.Notes"}}</div>
+    {{/ifeq}}
   </nav>
 
   {{!-- Body --}}
   <section class="sheet-body">
     {{!-- Group Members Tab --}}
     {{> "modules/settlement-sheets/templates/parts/building/overview.hbs"}}
+
+    {{!-- Notes Tab --}}
+    {{> "modules/settlement-sheets/templates/parts/building/notes.hbs"}}
   </section>
 </form>
