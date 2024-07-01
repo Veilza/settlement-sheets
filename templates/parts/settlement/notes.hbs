@@ -4,8 +4,10 @@
     {{editor note.public target="system.note.public" button=true editable=editable}}
   </div>
 
-  <h2>{{localize 'settlement-sheets.PrivateNotes'}}</h2>
-  <div class="private-notes">
-    {{editor note.private target="system.note.private" button=true editable=editable}}
-  </div>
+  {{#ifeq permissions 'owner'}}
+    <h2>{{localize 'settlement-sheets.PrivateNotes'}}</h2>
+    <div class="private-notes">
+      {{editor note.private target="system.note.private" button=true editable=editable}}
+    </div>
+  {{/ifeq}}
 </div>

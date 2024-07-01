@@ -98,6 +98,10 @@ export class BuildingItemSheet extends ItemSheet {
       relativeTo: this.object
     })
 
+    if (!game.user.isGM && this.item.limited) context.permissions = 'limited'
+    if (!game.user.isGM && this.item.observer) context.permissions = 'observer'
+    if (game.user.isGM || this.item.isOwner) context.permissions = 'owner'
+
     // Return the context once we're done with our changes
     return context
   }

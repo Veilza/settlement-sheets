@@ -34,6 +34,11 @@ export class SettlementActorSheet extends ActorSheet {
     // Define the context we're using
     const context = await super.getData(options)
 
+    // Generate quick references in the context for permissions levels
+    if (!game.user.isGM && this.actor.limited) context.permissions = 'limited'
+    if (!game.user.isGM && this.actor.permission === 2) context.permissions = 'observer'
+    if (game.user.isGM || this.actor.isOwner) context.permissions = 'owner'
+
     // Prepare items.
     await this._prepareItems(context)
 
@@ -89,7 +94,7 @@ export class SettlementActorSheet extends ActorSheet {
 
       // Push to either header_trackers or page_trackers depending on showInHeader
       // as long as showOnSettlement is true
-      if (statisticData.showOnSettlement) {
+      if (statisticData.showOnSettlement && (context.permissions === 'owner' || statisticData.showToPlayers)) {
         if (statisticData.showInHeader) {
           context.header_trackers.push(statisticData)
         } else {

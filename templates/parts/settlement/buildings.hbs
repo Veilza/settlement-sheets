@@ -16,16 +16,20 @@
           {{/if}}
         </h3>
         <div>{{{building.system.description}}}</div>
-        <div>{{{building.system.benefits}}}</div>
+        {{#ifeq permissions 'owner'}}
+          <div>{{{building.system.benefits}}}</div>
+        {{/ifeq}}
       </div>
     {{/each}}
-    <div class="building">
-      <div class="add-building">
-        <h3>
-          {{localize 'settlement-sheets.AddNewBuilding'}}
-        </h3>
-        <div>{{localize 'settlement-sheets.AddNewBuildingHint'}}</div>
+    {{#ifeq permissions 'owner'}}
+      <div class="building">
+        <div class="add-building">
+          <h3>
+            {{localize 'settlement-sheets.AddNewBuilding'}}
+          </h3>
+          <div>{{localize 'settlement-sheets.AddNewBuildingHint'}}</div>
+        </div>
       </div>
-    </div>
+    {{/ifeq}}
   </div>
 </div>
