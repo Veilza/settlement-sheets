@@ -7,7 +7,7 @@
             <i class="fas fa-trash"></i>
           </span>
         </h2>
-        <div class="grid grid-3col">
+        <div class="ss-grid ss-grid-3col">
           <div>
             <label for="{{id}}.type">{{localize 'Type'}}</label>
             <select id="{{id}}.type" name="{{id}}.type">
@@ -23,7 +23,7 @@
             <input type="text" name="{{id}}.append" value="{{stat.append}}">
           </div>
         </div>
-        <div class="grid grid-3col">
+        <div class="ss-grid ss-grid-3col">
           <div>
             <label for="{{id}}.showToPlayers">{{localize 'settlement-sheets.STATS.ShowToPlayers'}}</label>
             <input type="checkbox" name="{{id}}.showToPlayers" {{#if stat.showToPlayers}}checked{{/if}}>
@@ -41,7 +41,7 @@
     <hr/>
   {{/each}}
   <div id="statisticsContainer"></div>
-  <div class="button-section grid grid-3col">
+  <div class="button-section ss-grid ss-grid-3col">
     <button type="button" class="reset-statistics">
       <i class="fas fa-redo"></i> {{localize 'settlement-sheets.STATS.ResetStatistics'}}
     </button>
