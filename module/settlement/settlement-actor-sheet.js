@@ -136,8 +136,24 @@ export class SettlementActorSheet extends ActorSheet {
   }
 
   async _prepareItems (context) {
+    // Grab the list of statistics from the settings
+    const statisticsList = game.settings.get('settlement-sheets', 'sheetStatistics')
+
     // Empty array to hold the buildings list in
     const buildings = []
+
+    // Initialize or reset each value in the settlement's trackers
+    for (const [tracker, details] of Object.entries(statisticsList)) {
+      if (details.type === 'number') {
+        // Initialize the tracker if it doesn't already exist
+        if (!context.actor.system.trackers[tracker]) {
+          context.actor.system.trackers[tracker] = { value: 0, ...details }
+        } else {
+          // Reset only the value while preserving other data
+          context.actor.system.trackers[tracker].value = 0
+        }
+      }
+    }
 
     // Iterate through items, allocating to containers
     for (const i of context.items) {
@@ -161,7 +177,6 @@ export class SettlementActorSheet extends ActorSheet {
         })
 
         // Iterate through each tracker in the building
-        const statisticsList = game.settings.get('settlement-sheets', 'sheetStatistics')
         for (const [tracker, details] of Object.entries(statisticsList)) {
           if (details.type === 'number') {
             // Initialize the tracker with a default value if it doesn't already exist
