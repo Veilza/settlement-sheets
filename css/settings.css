@@ -22,7 +22,7 @@
 }
 
 .settlement-sheets-settings-menu input[type="text"],
-input[type="number"] {
+.settlement-sheets-settings-menu input[type="number"] {
   width: calc(100% - 20px);
   padding: 8px;
   margin-bottom: 10px;
