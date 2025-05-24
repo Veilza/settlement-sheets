@@ -1,4 +1,4 @@
-/* global Hooks, CONFIG, DocumentSheetConfig, Actor, Item */
+/* global Hooks, CONFIG, foundry, Actor, Item */
 
 // Base Foundry scripts
 import { _registerModuleSettings } from './scripts/settings.js'
@@ -17,7 +17,7 @@ Hooks.once('init', () => {
   Object.assign(CONFIG.Actor.dataModels, {
     'settlement-sheets.settlement': SettlementModel
   })
-  DocumentSheetConfig.registerSheet(Actor, 'settlement-sheets', SettlementActorSheet, {
+  foundry.applications.apps.DocumentSheetConfig.registerSheet(Actor, 'settlement-sheets', SettlementActorSheet, {
     types: ['settlement-sheets.settlement'],
     makeDefault: true
   })
@@ -26,7 +26,7 @@ Hooks.once('init', () => {
   Object.assign(CONFIG.Item.dataModels, {
     'settlement-sheets.building': BuildingModel
   })
-  DocumentSheetConfig.registerSheet(Item, 'settlement-sheets', BuildingItemSheet, {
+  foundry.applications.apps.DocumentSheetConfig.registerSheet(Item, 'settlement-sheets', BuildingItemSheet, {
     types: ['settlement-sheets.building'],
     makeDefault: true
   })

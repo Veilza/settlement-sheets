@@ -1,7 +1,7 @@
-/* global game, foundry, ItemSheet, TextEditor */
+/* global game, foundry, ItemSheet, TextEditor, Item */
 
 // Extend the base ActorSheet and put all our functionality here.
-export class BuildingItemSheet extends ItemSheet {
+export class BuildingItemSheet extends Item {
   /** @override */
   static get defaultOptions () {
     return foundry.utils.mergeObject(super.defaultOptions, {

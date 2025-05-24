@@ -1,7 +1,7 @@
-/* global game, foundry, ActorSheet, TextEditor, fromUuidSync, renderTemplate */
+/* global game, foundry, ActorSheet, TextEditor, fromUuidSync, renderTemplate, Actor */
 
 // Extend the base ActorSheet and put all our functionality here.
-export class SettlementActorSheet extends ActorSheet {
+export class SettlementActorSheet extends Actor {
   /** @override */
   static get defaultOptions () {
     return foundry.utils.mergeObject(super.defaultOptions, {
