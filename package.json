@@ -1,0 +1,21 @@
+{
+  "name": "settlement-sheets",
+  "version": "1.0.0",
+  "description": "Development scripts for the Settlement Sheets module.",
+  "scripts": {
+    "generate-release": "node scripts/generate-release-zip.js"
+  },
+  "browserslist": [
+    "last 3 versions"
+  ],
+  "author": "Veilza",
+  "license": "./LICENSE",
+  "private": false,
+  "devDependencies": {
+    "eslint": "^9.39.1",
+    "eslint-plugin-hbs": "^1.0.3",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "archiver": "^7.0.1"
+  }
+}

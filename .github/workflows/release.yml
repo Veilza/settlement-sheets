@@ -30,8 +30,8 @@ jobs:
                             "manifest": "https://github.com/veilza/settlement-sheets/releases/download/${{ github.event.release.tag_name }}/module.json",
                             "notes": "https://github.com/veilza/settlement-sheets/releases/tag/${{ github.event.release.tag_name }}",
                             "compatibility": {
-                                "minimum": "12",
-                                "verified": "12.331",
+                                "minimum": "13",
+                                "verified": "14.360",
                                 "maximum": ""
                             }
                         }
