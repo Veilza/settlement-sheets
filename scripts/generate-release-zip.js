@@ -4,7 +4,7 @@ import path from 'path'
 import archiver from 'archiver'
 
 // Output file
-const outputFile = 'dekatreis.zip'
+const outputFile = 'settlement-sheets.zip'
 
 // Delete the old outputFile if it already exists
 if (fs.existsSync(outputFile)) {
@@ -13,10 +13,10 @@ if (fs.existsSync(outputFile)) {
 }
 
 // All important files to the system
-const files = ['LICENSE.md', 'readme.md', 'module.json']
+const files = ['LICENSE', 'README.md', 'module.json']
 
 // All important directories to the system
-const directories = ['assets', 'lang', 'packs', 'scripts', 'styles']
+const directories = ['assets', 'css', 'lang', 'module', 'scripts', 'templates']
 
 const output = fs.createWriteStream(outputFile)
 const archive = archiver('zip', {
@@ -26,7 +26,7 @@ const archive = archiver('zip', {
 })
 
 output.on('close', () => {
-  console.log(`Dekatreis module release file ${outputFile} generated.`)
+  console.log(`Settlement Sheets module release file ${outputFile} generated.`)
 })
 
 archive.on('warning', (err) => {
