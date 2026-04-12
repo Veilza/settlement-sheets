@@ -1,38 +1,102 @@
 /* global game, foundry, ActorSheet, TextEditor, fromUuidSync, renderTemplate, Actor */
 
+import { _onAddBuilding, _onOpenBuilding, _onRemoveBuilding } from "./actions.js"
+import { prepareOverviewContext, prepareStatisticsContext, prepareBuildingsContext, prepareNotesContext } from "./prepare-partials.js"
+
+const { HandlebarsApplicationMixin } = foundry.applications.api
+
 // Extend the base ActorSheet and put all our functionality here.
-export class SettlementActorSheet extends Actor {
-  /** @override */
-  static get defaultOptions () {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ['settlement-sheet'],
-      template: 'modules/settlement-sheets/templates/settlement-sheet.hbs',
+export class SettlementActorSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2) {
+  static DEFAULT_OPTIONS = {
+    form: {
+      submitOnChange: true,
+      handler: SettlementActorSheet.onSubmitActorForm
+    },
+    classes: ['settlement-sheet'],
+    position: {
       width: 600,
-      height: 750,
-      tabs: [{
-        navSelector: '.sheet-tabs',
-        contentSelector: '.sheet-body',
-        initial: 'overview'
-      }],
-      dragDrop: [{
-        dragSelector: '.entity.actor.settlement-sheets.building',
-        dropSelector: null
-      }]
-    })
+      height: 750
+    },
+    actions: {
+      openBuilding: _onOpenBuilding,
+      addBuilding: _onAddBuilding,
+      removeBuilding: _onRemoveBuilding
+    }
   }
 
-  /** @override */
-  get template () {
-    if (!game.user.isGM && this.actor.limited) return 'modules/settlement-sheets/templates/settlement-sheet-limited.hbs'
-    return 'modules/settlement-sheets/templates/settlement-sheet.hbs'
+  static PARTS = {
+    header: {
+      template: 'modules/settlement-sheets/templates/parts/settlement/header.hbs'
+    },
+    limited: {
+      template: 'modules/settlement-sheets/templates/parts/settlement/limited.hbs'
+    },
+    tabs: {
+      template: 'templates/generic/tab-navigation.hbs'
+    },
+    overview: {
+      template: 'modules/settlement-sheets/templates/parts/settlement/overview.hbs'
+    },
+    statistics: {
+      template: 'modules/settlement-sheets/templates/parts/settlement/statistics.hbs'
+    },
+    buildings: {
+      template: 'modules/settlement-sheets/templates/parts/settlement/buildings.hbs'
+    },
+    notes: {
+      template: 'modules/settlement-sheets/templates/parts/settlement/notes.hbs'
+    }
   }
 
-  /* -------------------------------------------- */
+  tabs = {
+    overview: {
+      id: 'overview',
+      group: 'primary',
+      label: 'settlement-sheets.TABS.Overview'
+    },
+    statistics: {
+      id: 'statistics',
+      group: 'primary',
+      label: 'settlement-sheets.TABS.Statistics'
+    },
+    buildings: {
+      id: 'buildings',
+      group: 'primary',
+      label: 'settlement-sheets.TABS.Buildings'
+    },
+    notes: {
+      id: 'notes',
+      group: 'primary',
+      label: 'settlement-sheets.TABS.Notes'
+    }
+  }
 
-  /** @override */
-  async getData (options = {}) {
-    // Define the context we're using
-    const context = await super.getData(options)
+  tabGroups = {
+    primary: 'overview'
+  }
+
+  getTabs() {
+    const tabs = this.tabs
+
+    // Remove hidden tabs
+    for (const key in tabs) {
+      if (tabs[key].hidden) delete tabs[key]
+    }
+
+    for (const tab of Object.values(tabs)) {
+      tab.active = this.tabGroups[tab.group] === tab.id
+      tab.cssClass = tab.active ? 'active' : ''
+    }
+
+    return tabs
+  }
+
+  async _prepareContext() {
+    // Top-level variables
+    const context = await super._prepareContext()
+
+    // Prepare tabs
+    context.tabs = this.getTabs()
 
     // Generate quick references in the context for permissions levels
     if (!game.user.isGM && this.actor.limited) context.permissions = 'limited'
@@ -104,35 +168,38 @@ export class SettlementActorSheet extends Actor {
     }
 
     // The description field
-    context.description = await TextEditor.enrichHTML(this.object.system.description, {
+    context.description = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.description, {
       async: true,
-      secrets: this.object.isOwner,
-      relativeTo: this.object
+      secrets: this.document.isOwner,
+      relativeTo: this.document
     })
 
     // Influential people
-    context.influentialPeople = await TextEditor.enrichHTML(this.object.system.influentialPeople, {
+    context.influentialPeople = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.influentialPeople, {
       async: true,
-      secrets: this.object.isOwner,
-      relativeTo: this.object
+      secrets: this.document.isOwner,
+      relativeTo: this.document
     })
 
     // Private and Public notes
     context.note = {
-      public: await TextEditor.enrichHTML(this.object.system.note.public, {
+      public: await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.note.public, {
         async: true,
-        secrets: this.object.isOwner,
-        relativeTo: this.object
+        secrets: this.document.isOwner,
+        relativeTo: this.document
       }),
-      private: await TextEditor.enrichHTML(this.object.system.note.private, {
+      private: await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.note.private, {
         async: true,
-        secrets: this.object.isOwner,
-        relativeTo: this.object
+        secrets: this.document.isOwner,
+        relativeTo: this.document
       })
     }
 
     // Return the context once we're done with our changes
-    return context
+    return {
+      ...context,
+      actor: this.document
+    }
   }
 
   async _prepareItems (context) {
@@ -146,48 +213,45 @@ export class SettlementActorSheet extends Actor {
     for (const [tracker, details] of Object.entries(statisticsList)) {
       if (details.type === 'number') {
         // Initialize the tracker if it doesn't already exist
-        if (!context.actor.system.trackers[tracker]) {
-          context.actor.system.trackers[tracker] = { value: 0, ...details }
+        if (!context.document.system.trackers[tracker]) {
+          context.document.system.trackers[tracker] = { value: 0, ...details }
         } else {
           // Reset only the value while preserving other data
-          context.actor.system.trackers[tracker].value = 0
+          context.document.system.trackers[tracker].value = 0
         }
       }
     }
 
     // Iterate through items, allocating to containers
-    for (const i of context.items) {
+    for (const i of context.document.items) {
       // We only work with buildings
       if (i.type === 'settlement-sheets.building') {
-        // Add UUID to the building data
-        i.uuid = `Actor.${this.actor.id}.Item.${i._id}`
-
         // Enrich building description
-        i.system.description = await TextEditor.enrichHTML(i.system.description, {
+        i.system.description = await foundry.applications.ux.TextEditor.implementation.enrichHTML(i.system.description, {
           async: true,
-          secrets: this.object.isOwner,
-          relativeTo: this.object
+          secrets: this.document.isOwner,
+          relativeTo: this.document
         })
 
         // Enrich building benefits
-        i.system.benefits = await TextEditor.enrichHTML(i.system.benefits, {
+        i.system.benefits = await foundry.applications.ux.TextEditor.implementation.enrichHTML(i.system.benefits, {
           async: true,
-          secrets: this.object.isOwner,
-          relativeTo: this.object
+          secrets: this.document.isOwner,
+          relativeTo: this.document
         })
 
         // Iterate through each tracker in the building
         for (const [tracker, details] of Object.entries(statisticsList)) {
           if (details.type === 'number') {
             // Initialize the tracker with a default value if it doesn't already exist
-            if (!context.actor.system.trackers[tracker]) {
-              context.actor.system.trackers[tracker] = {
+            if (!context.document.system.trackers[tracker]) {
+              context.document.system.trackers[tracker] = {
                 value: 0
               }
             }
 
             // Add the item's tracker's value to the corresponding total
-            context.actor.system.trackers[tracker].value += i.system.trackers[tracker]?.value || 0
+            context.document.system.trackers[tracker].value += i.system.trackers[tracker]?.value || 0
           }
         }
 
@@ -197,82 +261,49 @@ export class SettlementActorSheet extends Actor {
     }
 
     // Assign the list of buildings to the actor data
-    context.actor.system.buildings = buildings
+    context.document.system.buildings = buildings
   }
 
-  // Activate any listeners
-  activateListeners (html) {
-    // Activate listeners
-    super.activateListeners(html)
+  async _preparePartContext(partId, context, options) {
+    // Inherit any preparation from the extended class
+    context = { ...(await super._preparePartContext(partId, context, options)) }
 
-    // Open an existing building on the sheet
-    html.find('.open-building').click(this._onOpenBuilding.bind(this))
+    // Top-level variables
+    const item = this.item
 
-    // Create a new building on the sheet
-    html.find('.add-building').click(this._onAddBuilding.bind(this))
-
-    // Remove a new building from the sheet
-    html.find('.remove-building').click(this._onRemoveBuilding.bind(this))
-  }
-
-  // Handle opening an existing building in a settlement
-  async _onOpenBuilding (event) {
-    event.preventDefault()
-
-    const dataset = event.currentTarget.dataset
-    const buildingUuid = dataset.uuid
-
-    fromUuidSync(buildingUuid).sheet.render(true)
-  }
-
-  // Handle adding a new building to a settlement
-  async _onAddBuilding (event) {
-    event.preventDefault()
-
-    // Create the new building in the settlement
-    const newBuilding = await this.actor.createEmbeddedDocuments('Item', [{
-      name: game.i18n.localize('settlement-sheets.NewBuilding'),
-      type: 'settlement-sheets.building'
-    }])
-
-    // Open the new building for editing
-    newBuilding[0].sheet.render(true)
-  }
-
-  // Handle removing a building from a settlement
-  async _onRemoveBuilding (event) {
-    event.preventDefault()
-
-    const dataset = event.currentTarget.dataset
-    const buildingUuid = dataset.uuid
-    const building = fromUuidSync(buildingUuid)
-
-    const template = 'modules/settlement-sheets/templates/remove-building-dialog.hbs'
-    const data = {
-      name: building.name
+    // Prepare each page context
+    switch (partId) {
+      // Stats
+      case 'overview':
+        return prepareOverviewContext(context, item)
+      case 'statistics':
+        return prepareStatisticsContext(context, item)
+      case 'buildings':
+        return prepareBuildingsContext(context, item)
+      case 'notes':
+        return prepareNotesContext(context, item)
     }
-    const content = await renderTemplate(template, data)
 
-    foundry.applications.api.DialogV2.wait({
-      window: {
-        title: game.i18n.localize('settlement-sheets.RemoveBuilding')
-      },
-      content,
-      buttons: [
-        {
-          action: 'confirm',
-          label: game.i18n.localize('settlement-sheets.RemoveBuilding'),
-          icon: 'fas fa-check',
-          callback: async () => {
-            this.actor.deleteEmbeddedDocuments('Item', [building.id])
-          }
-        },
-        {
-          action: 'cancel',
-          label: game.i18n.localize('Cancel'),
-          icon: 'fa-solid fa-xmark'
-        }
-      ]
-    })
+    return context
+  }
+
+  _configureRenderOptions(options) {
+    super._configureRenderOptions(options)
+
+    // If the document is in limited view, hide the non-limited header;
+    // otherwise, don't include the limited part
+    if (this.document.limited) {
+      options.parts = ['limited', 'tabs', 'overview', 'statistics', 'buildings', 'notes']
+    } else {
+      options.parts = ['header', 'tabs', 'overview', 'statistics', 'buildings', 'notes']
+    }
+  }
+
+  static async onSubmitActorForm(event, form, formData) {
+    // Process submit data
+    const submitData = this._prepareSubmitData(event, form, formData)
+
+    // Update the actor data
+    await this.document.update(submitData)
   }
 }

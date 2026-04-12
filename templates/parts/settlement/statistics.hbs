@@ -1,4 +1,4 @@
-<div class="tab statistics" data-group="primary" data-tab="statistics">
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
   <!-- Add detailed statistics fields here -->
   <div class="ss-grid ss-grid-3col">
     {{#each page_trackers as |tracker|}}
@@ -13,4 +13,4 @@
       </div>
     {{/each}}
   </div>
-</div>
+</section>

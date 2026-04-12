@@ -1,34 +1,88 @@
 /* global game, foundry, ItemSheet, TextEditor, Item */
 
+import { prepareNotesContext, prepareOverviewContext, prepareStatisticsContext } from "./prepare-partials.js"
+
+const { HandlebarsApplicationMixin } = foundry.applications.api
+
 // Extend the base ActorSheet and put all our functionality here.
-export class BuildingItemSheet extends Item {
-  /** @override */
-  static get defaultOptions () {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ['building-sheet'],
-      template: 'modules/settlement-sheets/templates/settlement-sheet.hbs',
+export class BuildingItemSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ItemSheetV2) {
+  static DEFAULT_OPTIONS = {
+    form: {
+      submitOnChange: true,
+      handler: BuildingItemSheet.onSubmitItemForm
+    },
+    classes: ['settlement-sheet'],
+    position: {
       width: 600,
-      height: 500,
-      tabs: [{
-        navSelector: '.sheet-tabs',
-        contentSelector: '.sheet-body',
-        initial: 'overview'
-      }]
-    })
+      height: 500
+    }
   }
 
-  /** @override */
-  get template () {
-    if (!game.user.isGM && this.item.limited) return 'modules/settlement-sheets/templates/building-sheet-limited.hbs'
-    return 'modules/settlement-sheets/templates/building-sheet.hbs'
+  static PARTS = {
+    header: {
+      template: 'modules/settlement-sheets/templates/parts/building/header.hbs'
+    },
+    limited: {
+      template: 'modules/settlement-sheets/templates/parts/building/limited.hbs'
+    },
+    tabs: {
+      template: 'templates/generic/tab-navigation.hbs'
+    },
+    overview: {
+      template: 'modules/settlement-sheets/templates/parts/building/overview.hbs'
+    },
+    statistics: {
+      template: 'modules/settlement-sheets/templates/parts/building/statistics.hbs'
+    },
+    notes: {
+      template: 'modules/settlement-sheets/templates/parts/building/notes.hbs'
+    }
   }
 
-  /* -------------------------------------------- */
+  tabs = {
+    overview: {
+      id: 'overview',
+      group: 'primary',
+      label: 'settlement-sheets.TABS.Overview'
+    },
+    statistics: {
+      id: 'statistics',
+      group: 'primary',
+      label: 'settlement-sheets.TABS.Statistics'
+    },
+    notes: {
+      id: 'notes',
+      group: 'primary',
+      label: 'settlement-sheets.TABS.Notes'
+    }
+  }
 
-  /** @override */
-  async getData (options = {}) {
-    // Define the context we're using
-    const context = await super.getData(options)
+  tabGroups = {
+    primary: 'overview'
+  }
+
+  getTabs() {
+    const tabs = this.tabs
+
+    // Remove hidden tabs
+    for (const key in tabs) {
+      if (tabs[key].hidden) delete tabs[key]
+    }
+
+    for (const tab of Object.values(tabs)) {
+      tab.active = this.tabGroups[tab.group] === tab.id
+      tab.cssClass = tab.active ? 'active' : ''
+    }
+
+    return tabs
+  }
+
+  async _prepareContext() {
+    // Top-level variables
+    const context = await super._prepareContext()
+
+    // Prepare tabs
+    context.tabs = this.getTabs()
 
     // Generate quick references in the context for permissions levels
     if (!game.user.isGM && this.item.limited) context.permissions = 'limited'
@@ -90,40 +144,78 @@ export class BuildingItemSheet extends Item {
     }
 
     // The description field
-    context.description = await TextEditor.enrichHTML(this.object.system.description, {
+    context.description = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.description, {
       async: true,
-      secrets: this.object.isOwner,
-      relativeTo: this.object
+      secrets: this.document.isOwner,
+      relativeTo: this.document
     })
 
     // The benefits field
-    context.benefits = await TextEditor.enrichHTML(this.object.system.benefits, {
+    context.benefits = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.benefits, {
       async: true,
-      secrets: this.object.isOwner,
-      relativeTo: this.object
+      secrets: this.document.isOwner,
+      relativeTo: this.document
     })
 
     // Private and Public notes
     context.note = {
-      public: await TextEditor.enrichHTML(this.object.system.note.public, {
+      public: await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.note.public, {
         async: true,
-        secrets: this.object.isOwner,
-        relativeTo: this.object
+        secrets: this.document.isOwner,
+        relativeTo: this.document
       }),
-      private: await TextEditor.enrichHTML(this.object.system.note.private, {
+      private: await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.note.private, {
         async: true,
-        secrets: this.object.isOwner,
-        relativeTo: this.object
+        secrets: this.document.isOwner,
+        relativeTo: this.document
       })
     }
 
     // Return the context once we're done with our changes
+    return {
+      ...context,
+      item: this.document
+    }
+  }
+
+  async _preparePartContext(partId, context, options) {
+    // Inherit any preparation from the extended class
+    context = { ...(await super._preparePartContext(partId, context, options)) }
+
+    // Top-level variables
+    const item = this.item
+
+    // Prepare each page context
+    switch (partId) {
+      // Stats
+      case 'overview':
+        return prepareOverviewContext(context, item)
+      case 'statistics':
+        return prepareStatisticsContext(context, item)
+      case 'notes':
+        return prepareNotesContext(context, item)
+    }
+
     return context
   }
 
-  /** @override */
-  activateListeners (html) {
-    // Activate listeners
-    super.activateListeners(html)
+  _configureRenderOptions(options) {
+    super._configureRenderOptions(options)
+
+    // If the document is in limited view, hide the notes and non-limited header;
+    // otherwise, don't include the limited part
+    if (this.document.limited) {
+      options.parts = ['limited', 'tabs', 'overview', 'statistics']
+    } else {
+      options.parts = ['header', 'tabs', 'overview', 'statistics', 'notes']
+    }
+  }
+
+  static async onSubmitItemForm(event, form, formData) {
+    // Process submit data
+    const submitData = this._prepareSubmitData(event, form, formData)
+
+    // Update the item data
+    await this.document.update(submitData)
   }
 }

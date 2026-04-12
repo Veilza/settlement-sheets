@@ -1,5 +1,8 @@
-<div class="tab overview" data-group="primary" data-tab="overview">
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
   <div class="description">
-    {{editor description target="system.description" button=true editable=editable}}
+    <prose-mirror name="system.description" value="{{description}}"
+        toggled="true" compact="true">
+        {{{description}}}
+    </prose-mirror>
   </div>
-</div>
+</section>

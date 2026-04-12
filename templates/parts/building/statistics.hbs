@@ -1,4 +1,4 @@
-<div class="tab statistics" data-group="primary" data-tab="statistics">
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
   <div class="trackers ss-grid ss-grid-3col">
     {{#each trackers as |tracker|}}
       <div class="tracker">
@@ -14,4 +14,4 @@
       </div>
     {{/each}}
   </div>
-</div>
+</section>

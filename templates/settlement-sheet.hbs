@@ -1,35 +1,4 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-  {{!-- Header --}}
-  <header class="header">
-    <div class="core-info">
-      <img class="image" src="{{actor.img}}" data-edit="img" title="{{localize 'settlement-sheets.EditImage'}}" alt="{{localize 'settlement-sheets.EditImage'}}"/>
-      <h1 class="name">
-        <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'Name'}}"/>
-      </h1>
-    </div>
-    <div class="trackers">
-      {{#each header_trackers as |tracker|}}
-        <div class="tracker">
-          <label class="title">{{localize tracker.label}}</label>
-          {{#ifeq tracker.type 'number'}}
-            <label class="content">{{tracker.prepend}}{{tracker.value}}{{tracker.append}}</label>
-          {{/ifeq}}
-          {{#ifeq tracker.type 'string'}}
-            <input type="text" name="system.trackers.{{id}}.value" value="{{tracker.value}}"/>
-          {{/ifeq}}
-        </div>
-      {{/each}}
-    </div>
-  </header>
-
-  {{!-- Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary">
-    <div class="item" data-tab="overview">{{localize "settlement-sheets.TABS.Overview"}}</div>
-    <div class="item" data-tab="statistics">{{localize "settlement-sheets.TABS.Statistics"}}</div>
-    <div class="item" data-tab="buildings">{{localize "settlement-sheets.TABS.Buildings"}}</div>
-    <div class="item" data-tab="notes">{{localize "settlement-sheets.TABS.Notes"}}</div>
-  </nav>
-
   {{!-- Body --}}
   <section class="sheet-body">
     {{!-- Overview Tab --}}

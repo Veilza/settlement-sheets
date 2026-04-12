@@ -1,4 +1,4 @@
-<div class="tab buildings" data-group="primary" data-tab="buildings">
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
   <div class="ss-grid-2col">
     {{#each actor.system.buildings as |building id|}}
       <div class="building">
@@ -6,10 +6,10 @@
           {{building.name}}
           {{#if ../editable}}
             <div>
-              <label class="remove-building" data-uuid="{{building.uuid}}" title="{{localize 'settlement-sheets.RemoveBuilding'}}">
+              <label class="remove-building" data-action="removeBuilding" data-uuid="{{building.uuid}}" title="{{localize 'settlement-sheets.RemoveBuilding'}}">
                 <i class="fas fa-trash"></i>
               </label>
-              <label class="open-building" data-uuid="{{building.uuid}}" title="{{localize 'settlement-sheets.EditBuilding'}}">
+              <label class="open-building" data-action="openBuilding" data-uuid="{{building.uuid}}" title="{{localize 'settlement-sheets.EditBuilding'}}">
                 <i class="fas fa-cog"></i>
               </label>
             </div>
@@ -23,7 +23,7 @@
     {{/each}}
     {{#ifeq permissions 'owner'}}
       <div class="building">
-        <div class="add-building">
+        <div class="add-building" data-action="addBuilding">
           <h3>
             {{localize 'settlement-sheets.AddNewBuilding'}}
           </h3>
@@ -32,4 +32,4 @@
       </div>
     {{/ifeq}}
   </div>
-</div>
+</section>

@@ -5,7 +5,7 @@
 }
 
 .settlement-sheet .window-content {
-  padding-top: 0px;
+  padding: 0px;
   background-color: var(--settlement-sheet-base-color);
   background-blend-mode: multiply;
 }
@@ -16,6 +16,7 @@
   padding-left: 10px;
   padding-right: 10px;
   background-blend-mode: multiply;
+  flex-grow: 1;
 }
 
 .settlement-sheet .sheet-body {
@@ -84,6 +85,8 @@
 
 .settlement-sheet .tab.active {
   display: block;
+  overflow-y: auto;
+  height: 100%;
 }
 
 /* Buildings Page */
@@ -118,6 +121,7 @@
 .settlement-sheet .influential-people,
 .settlement-sheet .editor {
   min-height: 200px;
+  height: 100%;
 }
 
 .settlement-sheet .description .tox.tox-tinymce,
@@ -199,4 +203,9 @@
 
 .settlement-sheet .remove-building {
   cursor: pointer;
+}
+
+.settlement-sheet .open-building i,
+.settlement-sheet .remove-building i {
+  font-size: 12pt;
 }

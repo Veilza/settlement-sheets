@@ -1,22 +1,18 @@
-<div class="tab overview" data-group="primary" data-tab="overview">
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
   <div class="description">
     <h3 class="field-title">{{localize 'settlement-sheets.SettlementDescription'}}</h3>
-    {{editor description target="system.description" button=true editable=editable}}
+    <prose-mirror name="system.description" value="{{description}}"
+        toggled="true" compact="true">
+        {{{description}}}
+    </prose-mirror>
   </div>
   <div class="flexrow">
     <div class="influential-people">
       <h3 class="field-title">{{localize 'settlement-sheets.InfluentialPeople'}}</h3>
-      {{editor influentialPeople target="system.influentialPeople" button=true editable=editable}}
+      <prose-mirror name="system.influentialPeople" value="{{influentialPeople}}"
+          toggled="true" compact="true">
+          {{{influentialPeople}}}
+      </prose-mirror>
     </div>
-    <!-- Temporarily disabled until I can rework this to sort based on a category
-    <div class="buildings-list">
-      <h3 class="field-title">{{localize 'settlement-sheets.MostPopulousBuildings'}}</h3>
-      <ul>
-        {{#each actor.buildings as |building|}}
-          <li>{{building.name}}</li>
-        {{/each}}
-      </ul>
-    </div>
-    -->
   </div>
-</div>
+</section>

@@ -13,7 +13,7 @@
       }
     }
   ],
-	"version": "1.0.4",
+	"version": "1.1.0",
 	"compatibility": {
 		"minimum": 13,
 		"verified": 14.360
@@ -58,11 +58,11 @@
 			"path": "lang/it.json"
 		}
 	],
-	"manifest": "https://github.com/veilza/settlement-sheets/releases/download/1.0.4/module.json",
+	"manifest": "https://github.com/veilza/settlement-sheets/releases/download/1.1.0/module.json",
 	"url": "https://github.com/veilza/settlement-sheets",
-	"download": "https://github.com/veilza/settlement-sheets/releases/download/1.0.4/settlement-sheets.zip",
+	"download": "https://github.com/veilza/settlement-sheets/releases/download/1.1.0/settlement-sheets.zip",
 	"readme": "https://github.com/veilza/settlement-sheets/blob/main/readme.md",
-	"changelog": "https://github.com/veilza/settlement-sheets/releases/tag/1.0.4",
+	"changelog": "https://github.com/veilza/settlement-sheets/releases/tag/1.1.0",
   "documentTypes": {
     "Actor": {
       "settlement": {

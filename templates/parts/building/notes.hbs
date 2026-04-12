@@ -1,13 +1,19 @@
-<div class="tab note" data-group="primary" data-tab="notes">
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
   <h2>{{localize 'settlement-sheets.PublicNotes'}}</h2>
   <div class="public-notes">
-    {{editor note.public target="system.note.public" button=true editable=editable}}
+    <prose-mirror name="system.note.public" value="{{note.public}}"
+        toggled="true" compact="true">
+        {{{note.public}}}
+    </prose-mirror>
   </div>
 
   {{#ifeq permissions 'owner'}}
     <h2>{{localize 'settlement-sheets.PrivateNotes'}}</h2>
     <div class="private-notes">
-      {{editor note.private target="system.note.private" button=true editable=editable}}
+      <prose-mirror name="system.note.private" value="{{note.private}}"
+          toggled="true" compact="true">
+          {{{note.private}}}
+      </prose-mirror>
     </div>
   {{/ifeq}}
-</div>
+</section>

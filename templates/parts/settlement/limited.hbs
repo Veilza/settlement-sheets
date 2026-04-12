@@ -1,0 +1,21 @@
+<header class="header">
+  <div class="core-info">
+    <img class="image" src="{{actor.img}}" title="{{localize 'settlement-sheets.EditImage'}}" alt="{{localize 'settlement-sheets.EditImage'}}"/>
+    <h1 class="name">
+      <label>{{actor.name}}</label>
+    </h1>
+  </div>
+  <div class="trackers">
+    {{#each header_trackers as |tracker|}}
+      <div class="tracker">
+        <label class="title">{{localize tracker.label}}</label>
+        {{#ifeq tracker.type 'number'}}
+          <label class="content">{{tracker.prepend}}{{tracker.value}}{{tracker.append}}</label>
+        {{/ifeq}}
+        {{#ifeq tracker.type 'string'}}
+          <label class="content">{{tracker.value}}"</label>
+        {{/ifeq}}
+      </div>
+    {{/each}}
+  </div>
+</header>
